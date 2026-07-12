@@ -40,6 +40,12 @@
     .asset{ max-height:82vh; max-width:100%; width:auto; border:1px solid var(--line); border-radius:14px; box-shadow:0 12px 40px rgba(0,0,0,.5); }
     .asset-caption{ font-family:var(--mono); font-size:.4em; letter-spacing:.06em; color:var(--muted); margin-top:.8em; }
 
+    /* JD-aligned subtitle bullets on section lead-in slides */
+    .jd{ list-style:none; margin:.7em 0 0; padding:0; max-width:23em; }
+    .jd li{ position:relative; padding-left:1.15em; margin:.55em 0; font-size:.7em; color:var(--ink); line-height:1.4; }
+    .jd li::before{ content:"\2192"; position:absolute; left:0; color:var(--amber); }
+    .jd li b{ color:#fff; }
+
     .reveal .slides section{ text-align:left; }
     .reveal .slides section.center{ text-align:center; }
 
@@ -98,23 +104,190 @@
         </section>
       </section>
 
-      <!-- ============ ADD FUTURE ASSETS BELOW ============ -->
-      <!--
-        Pattern for a new asset section (copy this block):
+      <!-- ============ THE AUGMENTED TRAVEL PRODUCT ============ -->
 
-        <section>
-          <section data-background-color="#141110">
-            <div class="kicker"><span class="dot">●</span> KICKER LABEL</div>
-            <h2>Headline claim.</h2>
-            <p class="sub">One-paragraph context, defensible + plain.</p>
-            <p class="hint">↓ the receipts</p>
-          </section>
-          <section class="center" data-background-color="#141110">
-            <img class="asset" src="assets/your-image.png" alt="describe it for ATS/AI + screen readers">
-            <div class="asset-caption">CAPTION · PROVENANCE</div>
-          </section>
+      <section>
+        <section data-background-color="#141110">
+          <div class="kicker"><span class="dot">●</span> THE SURFACE · TRAVEL.AUGWORLDS.AI</div>
+          <h2>An AI-native shopping surface.</h2>
+          <ul class="jd">
+            <li><b>Conversational home</b> — “Where to next?” in plain language or voice, not a search grid.</li>
+            <li>One prompt routes to find flights, find hotels, compare routes, or “help me decide.”</li>
+            <li>The surface a customer reaches from an AI channel — <b>“your agent talking to theirs.”</b></li>
+          </ul>
+          <p class="hint">↓ the receipts</p>
         </section>
-      -->
+        <section class="center" data-background-color="#141110">
+          <img class="asset" src="assets/app-agent-1.png" alt="Conversational home screen: Welcome back, Greg. Where to next, with quick actions.">
+          <div class="asset-caption">HOME · CONVERSATIONAL ENTRY (VOICE + TEXT)</div>
+        </section>
+        <section class="center" data-background-color="#141110">
+          <img class="asset" src="assets/app-agent-2.png" alt="A typed natural-language query: compare flight options from PDX to SLC.">
+          <div class="asset-caption">ONE PROMPT → COMPARE FLIGHTS PDX→SLC</div>
+        </section>
+      </section>
+
+      <section>
+        <section data-background-color="#141110">
+          <div class="kicker"><span class="dot">●</span> THE MARKETPLACE · AGENTIC COMMERCE</div>
+          <h2>A two-sided agent marketplace.</h2>
+          <ul class="jd">
+            <li><b>Supply side:</b> travel brands run as agents; self-serve “Claim this agent” — brand-direct, low coordination tax.</li>
+            <li><b>Demand side:</b> your team of agents plans, books, and saves on your behalf.</li>
+            <li><b>Curation-first ranking</b> — trusted-partner promotion and US-first tiers set the order.</li>
+          </ul>
+          <p class="hint">↓ the receipts</p>
+        </section>
+        <section class="center" data-background-color="#141110">
+          <img class="asset" src="assets/app-marketplace.png" alt="Agent marketplace card grid: brand agents with Add to My Team, On My Team, and Claim this agent.">
+          <div class="asset-caption">BRAND AGENTS · SELF-SERVE CLAIM + ADD TO TEAM</div>
+        </section>
+        <section class="center" data-background-color="#141110">
+          <img class="asset" src="assets/app-agents-1.png" alt="My Agents: the user's team of airline and hotel agents, each On Team with loyalty program.">
+          <div class="asset-caption">MY AGENTS · YOUR TEAM (AIRLINES + HOTELS)</div>
+        </section>
+        <section class="center" data-background-color="#141110">
+          <img class="asset" src="assets/app-agents-2.png" alt="My Agents continued: more team agents and configuration.">
+          <div class="asset-caption">CONFIGURE EACH AGENT · WATCH ROUTES / PRICES</div>
+        </section>
+        <section class="center" data-background-color="#141110">
+          <img class="asset" src="assets/app-agents-3.png" alt="My Agents continued: hotel brands and additional agents.">
+          <div class="asset-caption">DEPLOY BRANDS AS YOUR AGENTS</div>
+        </section>
+      </section>
+
+      <section>
+        <section data-background-color="#141110">
+          <div class="kicker"><span class="dot">●</span> FIRST LIVE COMBOT · TURKISH AIRLINES</div>
+          <h2>A brand, running as an agent.</h2>
+          <ul class="jd">
+            <li>A real A2A brand agent: <b>flight search, flight status, promotions, Miles&amp;Smiles, city guide</b> — callable capabilities, not a landing page.</li>
+            <li>Searches real-time inventory, compares options, and <b>matches deals to your preferences</b>; tracks and maximizes points.</li>
+            <li>Self-serve + measurable — “Claim this Agent,” add to your team, with <b>traveler-match / offer-view / booking</b> counters.</li>
+          </ul>
+          <p class="hint">↓ the receipts</p>
+        </section>
+        <section class="center" data-background-color="#141110">
+          <img class="asset" src="assets/app-turkish-combot.png" alt="Turkish Airlines ComBot detail: capabilities, Miles and Smiles connected, flight status and search and promotions and city guide, claim and add buttons, live counters showing 8 traveler matches.">
+          <div class="asset-caption">TURKISH AIRLINES COMBOT · CAPABILITIES + CLAIM + LIVE COUNTERS</div>
+        </section>
+      </section>
+
+      <section>
+        <section data-background-color="#141110">
+          <div class="kicker"><span class="dot">●</span> AUTONOMOUS, WHERE SAFE · WATCHERS</div>
+          <h2>Agents that work while you don't.</h2>
+          <ul class="jd">
+            <li>Watchers track a route and a <b>price ceiling</b>, re-run on a schedule, and alert on a match.</li>
+            <li>Proactive monitoring, not a one-shot search — SEA→PEK matched under ceiling, alert sent.</li>
+            <li>A production loop: pause, stop, and per-route status the user controls.</li>
+          </ul>
+          <p class="hint">↓ the receipts</p>
+        </section>
+        <section class="center" data-background-color="#141110">
+          <img class="asset" src="assets/app-watchers.png" alt="Watchers screen: routes being tracked with max price, status active, best-so-far prices, match found alert sent.">
+          <div class="asset-caption">WATCHERS · ROUTE + PRICE-CEILING TRACKING, ALERT ON MATCH</div>
+        </section>
+      </section>
+
+      <section>
+        <section data-background-color="#141110">
+          <div class="kicker"><span class="dot">●</span> RANKING &amp; PERSONALIZATION · PRODUCT-DEFINED</div>
+          <h2>Declared + inferred, kept honest.</h2>
+          <ul class="jd">
+            <li><b>Declared preferences:</b> home airport, default airline / hotel / car, cabin, seat — explicit inputs.</li>
+            <li><b>Inferred profile:</b> encrypted at rest, built from observed behavior — suggest-only, ranks below declared.</li>
+            <li>Product-defined precedence turns signals into ranking; <b>never a hard filter.</b></li>
+          </ul>
+          <p class="hint">↓ the receipts</p>
+        </section>
+        <section class="center" data-background-color="#141110">
+          <img class="asset" src="assets/app-settings-1.png" alt="Settings My Defaults tab: home airport SEA, default airline, hotel, rental car, cabin class, seat preference, plus custom defaults list.">
+          <div class="asset-caption">MY DEFAULTS · EXPLICIT DECLARED PREFERENCES</div>
+        </section>
+        <section class="center" data-background-color="#141110">
+          <img class="asset" src="assets/app-settings-5.png" alt="Settings Privacy tab: Declared Preferences, an encrypted Inferred Profile based on 15 observations showing a traveler profile, and a recent activity log.">
+          <div class="asset-caption">PRIVACY · DECLARED + ENCRYPTED INFERRED PROFILE + ACTIVITY LOG</div>
+        </section>
+      </section>
+
+      <section>
+        <section data-background-color="#141110">
+          <div class="kicker"><span class="dot">●</span> DATA · THE PROFILE BUILDS ITSELF</div>
+          <h2>A profile that builds itself.</h2>
+          <ul class="jd">
+            <li>Forward a booking confirmation — the agent <b>learns airlines, hotels, and preferences from real trips.</b></li>
+            <li>Calendar sync, and one-place loyalty across airlines, hotels, cars, and cards.</li>
+            <li>An <b>LLM-native customer profile</b> — ingest, unify, single view.</li>
+          </ul>
+          <p class="hint">↓ the receipts</p>
+        </section>
+        <section class="center" data-background-color="#141110">
+          <img class="asset" src="assets/app-settings-3.png" alt="Settings Connections tab: personal email forwarding address, auto-forwarding setup, and Google Calendar connected.">
+          <div class="asset-caption">CONNECTIONS · EMAIL FORWARDING + CALENDAR SYNC</div>
+        </section>
+        <section class="center" data-background-color="#141110">
+          <img class="asset" src="assets/app-points.png" alt="Points and Loyalty Programs: add a program, forward a statement to import, and unified balances across brands.">
+          <div class="asset-caption">POINTS · UNIFIED LOYALTY, STATEMENT-FORWARD INGEST</div>
+        </section>
+      </section>
+
+      <section>
+        <section data-background-color="#141110">
+          <div class="kicker"><span class="dot">●</span> CHANNELS &amp; CONTROL</div>
+          <h2>Meet the user where they are.</h2>
+          <ul class="jd">
+            <li><b>WhatsApp and email delivery</b> — booking confirmations, price and watcher alerts.</li>
+            <li>Granular notification control; timezone, currency, and date-format display.</li>
+            <li>The user owns the settings — including an explicit, reversible account delete.</li>
+          </ul>
+          <p class="hint">↓ the receipts</p>
+        </section>
+        <section class="center" data-background-color="#141110">
+          <img class="asset" src="assets/app-settings-2.png" alt="Settings WhatsApp tab: phone number and enable WhatsApp toggle for confirmations and alerts.">
+          <div class="asset-caption">WHATSAPP · MULTI-CHANNEL DELIVERY</div>
+        </section>
+        <section class="center" data-background-color="#141110">
+          <img class="asset" src="assets/app-settings-4.png" alt="Settings Notifications tab: email and push alert toggles, notify-about checkboxes, display timezone and currency, and a danger-zone delete.">
+          <div class="asset-caption">NOTIFICATIONS · GRANULAR, USER-CONTROLLED</div>
+        </section>
+      </section>
+
+      <section>
+        <section data-background-color="#141110">
+          <div class="kicker"><span class="dot">●</span> TRUST · DATA MINIMIZATION</div>
+          <h2>Sensitive data, encrypted.</h2>
+          <ul class="jd">
+            <li>Travel documents <b>encrypted at rest</b>; only the owner can view them.</li>
+            <li>Deliberate data-minimization — the product stopped storing passports.</li>
+            <li>The trust posture agent commerce needs.</li>
+          </ul>
+          <p class="hint">↓ the receipts</p>
+        </section>
+        <section class="center" data-background-color="#141110">
+          <img class="asset" src="assets/app-documents.png" alt="Travel Documents screen: encrypted-and-secure banner, document cards for passport, visa, insurance, Global Entry, TSA PreCheck with expirations.">
+          <div class="asset-caption">TRAVEL DOCUMENTS · ENCRYPTED AT REST, OWNER-ONLY</div>
+        </section>
+      </section>
+
+      <section>
+        <section data-background-color="#141110">
+          <div class="kicker"><span class="dot">●</span> SOCIAL · DISCOVERY</div>
+          <h2>Travel is social.</h2>
+          <ul class="jd">
+            <li>Share trips, flights, and experiences; see what friends and family are planning.</li>
+            <li>A demand-side discovery loop on top of the commerce surface.</li>
+          </ul>
+          <p class="hint">↓ the receipts</p>
+        </section>
+        <section class="center" data-background-color="#141110">
+          <img class="asset" src="assets/app-friends.png" alt="Vibe Sharing screen: my experiences and shared-with-me cards for trips, flights, hotels, dinners, and concerts.">
+          <div class="asset-caption">VIBE SHARING · SHARE + DISCOVER TRIPS</div>
+        </section>
+      </section>
+
+      <!-- To add a new asset section: copy any <section>…</section> block above,
+           swap the kicker / headline / <li> bullets / <img src> / caption. -->
 
       <!-- ============ CLOSE ============ -->
       <section class="center" data-background-color="#141110">
