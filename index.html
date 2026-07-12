@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Greg Prosl — Build Portfolio</title>
+
+  <!-- reveal.js core (CDN, no build step) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+
+  <style>
+    /* ---- Theme: charcoal + amber, matched to the deploy-log viz ---- */
+    :root{
+      --bg:#141110;
+      --panel:#1e1a17;
+      --ink:#ece7e0;
+      --muted:#9a9088;
+      --amber:#e08a3c;
+      --cyan:#6bb6c7;
+      --line:#312a25;
+      --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+      --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    }
+    .reveal{ font-family:var(--sans); color:var(--ink); font-size:34px; }
+    .reveal-viewport{ background:var(--bg); }
+    .reveal h1,.reveal h2,.reveal h3{ color:var(--ink); font-weight:700; letter-spacing:-.02em; text-transform:none; line-height:1.05; }
+    .reveal h1{ font-size:2.1em; }
+    .reveal h2{ font-size:1.5em; }
+    .reveal a{ color:var(--amber); }
+    .reveal strong{ color:#fff; }
+    .reveal em{ color:var(--amber); font-style:normal; }
+
+    /* eyebrow / kicker label like the viz */
+    .kicker{ font-family:var(--mono); font-size:.5em; letter-spacing:.18em; text-transform:uppercase; color:var(--amber); margin-bottom:.6em; }
+    .kicker .dot{ color:var(--amber); }
+    .sub{ color:var(--muted); font-size:.72em; line-height:1.4; max-width:20em; }
+    .foot{ font-family:var(--mono); font-size:.42em; letter-spacing:.06em; color:var(--muted); }
+
+    /* asset image: fill the slide, never overflow */
+    .asset{ max-height:82vh; max-width:100%; width:auto; border:1px solid var(--line); border-radius:14px; box-shadow:0 12px 40px rgba(0,0,0,.5); }
+    .asset-caption{ font-family:var(--mono); font-size:.4em; letter-spacing:.06em; color:var(--muted); margin-top:.8em; }
+
+    .reveal .slides section{ text-align:left; }
+    .reveal .slides section.center{ text-align:center; }
+
+    /* stat row (title slide) */
+    .stats{ display:flex; gap:0; margin-top:1em; border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+    .stat{ padding:.7em 1em; border-right:1px solid var(--line); flex:1; }
+    .stat:last-child{ border-right:0; }
+    .stat b{ display:block; font-size:1.5em; color:var(--amber); font-weight:800; line-height:1; }
+    .stat span{ font-family:var(--mono); font-size:.42em; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
+
+    .reveal .progress{ color:var(--amber); }
+    .reveal .controls{ color:var(--amber); }
+    .hint{ font-family:var(--mono); font-size:.4em; color:var(--muted); letter-spacing:.08em; margin-top:1.2em; }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============ TITLE ============ -->
+      <section class="center" data-background-color="#141110">
+        <div class="kicker"><span class="dot">●</span> BUILD PORTFOLIO · GREG PROSL</div>
+        <h1>Things I've&nbsp;built.</h1>
+        <p class="sub" style="margin:1em auto 0;">AI-native builder &amp; technical product leader. Six start-ups, two exits. I ship the product, not the deck — these are the receipts.</p>
+        <p class="hint">Press <strong>→</strong> to advance · <strong>↓</strong> for detail · <strong>Esc</strong> for overview</p>
+      </section>
+
+      <!-- ============ SECTION: DEPLOY LOG ============ -->
+      <!-- Lead-in (horizontal). Press ↓ to drill into the two asset slides. -->
+      <section>
+        <section data-background-color="#141110">
+          <div class="kicker"><span class="dot">●</span> PRODUCTION DEPLOY LOG · TRAVEL.AW · APR 17 — JUL 9 2026</div>
+          <h2>Agent2Agent two-sided marketplace, shipped.</h2>
+          <p class="sub" style="max-width:24em;">Travelers on the demand side, travel brands and their ComBot agents on the supply side, matched by an Agent2Agent layer. Across ~12 weeks both sides — and the spine that clears transactions between them — came online.</p>
+          <div class="stats">
+            <div class="stat"><b>143</b><span>deploys</span></div>
+            <div class="stat"><b>~12</b><span>avg / week</span></div>
+            <div class="stat"><b>23</b><span>peak week</span></div>
+            <div class="stat"><b>~53</b><span>named landings</span></div>
+          </div>
+          <p class="hint">↓ the receipts</p>
+        </section>
+
+        <!-- Asset 1 -->
+        <section class="center" data-background-color="#141110">
+          <img class="asset" src="assets/deploy-log-1-cadence.png"
+               alt="Production deploy log — 143 deploys over 12 weeks, week-by-week shipping cadence bar chart peaking at 23 in mid-May.">
+          <div class="asset-caption">SHIPPING CADENCE, WEEK BY WEEK · GIT-GROUNDED (W16–W28, SUMS TO 143)</div>
+        </section>
+
+        <!-- Asset 2 -->
+        <section class="center" data-background-color="#141110">
+          <img class="asset" src="assets/deploy-log-2-breakdown.png"
+               alt="What each side got — named landings by market side: demand 14, supply 10, transaction spine 17, substrate 12, plus ~89 routine iterations.">
+          <div class="asset-caption">WHAT EACH SIDE GOT · ~53 NAMED LANDINGS BY MARKET SIDE + ~89 ITERATION TAIL</div>
+        </section>
+      </section>
+
+      <!-- ============ ADD FUTURE ASSETS BELOW ============ -->
+      <!--
+        Pattern for a new asset section (copy this block):
+
+        <section>
+          <section data-background-color="#141110">
+            <div class="kicker"><span class="dot">●</span> KICKER LABEL</div>
+            <h2>Headline claim.</h2>
+            <p class="sub">One-paragraph context, defensible + plain.</p>
+            <p class="hint">↓ the receipts</p>
+          </section>
+          <section class="center" data-background-color="#141110">
+            <img class="asset" src="assets/your-image.png" alt="describe it for ATS/AI + screen readers">
+            <div class="asset-caption">CAPTION · PROVENANCE</div>
+          </section>
+        </section>
+      -->
+
+      <!-- ============ CLOSE ============ -->
+      <section class="center" data-background-color="#141110">
+        <div class="kicker"><span class="dot">●</span> GREG PROSL</div>
+        <h2>Let's build.</h2>
+        <p class="sub" style="margin:.8em auto 0;">gprosl@gmail.com · Seattle, WA · <a href="https://travel.augworlds.ai">travel.augworlds.ai</a></p>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,              // shareable per-slide URLs (#/2/1)
+      slideNumber: 'c/t',
+      controls: true,
+      progress: true,
+      transition: 'fade',
+      backgroundTransition: 'fade',
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>
