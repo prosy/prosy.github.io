@@ -153,11 +153,44 @@
       <section data-background-color="#141110">
         <div class="split">
           <div class="txt">
+            <div class="kicker"><span class="dot">●</span> SHOP → BOOK · FLIGHTS</div>
+            <h2>The agent, working.</h2>
+            <ul class="jd"><li>Natural-language query → <b>“Found 66 itineraries, from $78.”</b></li><li><b>Best vs Cheapest</b> ranked results — each with fares, cabin, and one-tap actions.</li><li>Learns in the flow — <b>“save SEA as your home airport?”</b> captured as a declared preference.</li></ul>
+          </div>
+          <div class="media"><img class="asset" src="assets/app-agent-convo-1.png" alt="Conversational flight search: user asks SFO to SEA Sept 21, agent returns 66 itineraries ranked Best or Cheapest, with a prompt to save SEA as home airport."><div class="asset-caption">FLIGHT SEARCH · RANKED RESULTS + IN-FLOW LEARNING</div></div>
+        </div>
+      </section>
+
+      <section data-background-color="#141110">
+        <div class="split">
+          <div class="txt">
             <div class="kicker"><span class="dot">●</span> TRANSACTION SPINE · AGENTS TRANSACT</div>
             <h2>Safe agent checkout.</h2>
-            <ul class="jd"><li>The money-path: hotel checkout (LiteAPI) and flight booking (Duffel).</li><li><b>Authorization boundary + human-in-the-loop</b> — an agent can't complete a purchase unverified.</li><li>Fail-closed gates on price, cabin, and totals.</li></ul>
+            <ul class="jd"><li>The money-path end: confirm the flight, <b>book it</b> — Alaska SFO→SEA, confirmed total $118.40.</li><li><b>Human-in-the-loop</b>: review price → confirm → book; an agent can't purchase unverified.</li><li>Data-minimized — “used only for this booking, not stored beyond it.”</li></ul>
           </div>
-          <div class="media"><div class="placeholder"><div class="ph-badge">PLACEHOLDER</div><div class="ph-note">Suggested image: an <b>agent checkout / booking-confirmation</b> screen (hotel via LiteAPI or flight via Duffel) showing the human-in-the-loop confirm step. A capture already exists at <b>~/Downloads/screencapture-travel-augworlds-ai-checkout-*-2026-07-09-*.pdf</b> — say the word and I'll wire it in, or reshoot the current flow.</div></div></div>
+          <div class="media"><img class="asset" src="assets/app-confirm-2.png" alt="Confirm Your Flight: Alaska SFO to SEA nonstop $118, passenger details, confirmed total 118.40 USD, Book This Flight button, data-minimization note."><div class="asset-caption">CONFIRM YOUR FLIGHT · REVIEW → BOOK</div></div>
+        </div>
+      </section>
+
+      <section data-background-color="#141110">
+        <div class="split">
+          <div class="txt">
+            <div class="kicker"><span class="dot">●</span> SHOP → BOOK · HOTELS</div>
+            <h2>Hotels, same surface.</h2>
+            <ul class="jd"><li>“Find me hotels in SFO, Sept 21–24, 2 persons” → <b>8 hotels from $158/night.</b></li><li>Ranked <b>with reasons</b> — “free airport shuttle justifies premium over cheaper options.”</li><li>Choose a room or save to your agents, in the conversation.</li></ul>
+          </div>
+          <div class="media"><img class="asset" src="assets/app-agent-convo-2.png" alt="Conversational hotel search returning 8 hotels with ratings, prices, and AI reasoning, plus choose-room and save actions."><div class="asset-caption">HOTEL SEARCH · RANKED WITH REASONING</div></div>
+        </div>
+      </section>
+
+      <section data-background-color="#141110">
+        <div class="split">
+          <div class="txt">
+            <div class="kicker"><span class="dot">●</span> SHOP → BOOK · HOTELS</div>
+            <h2>A hotel, in depth.</h2>
+            <ul class="jd"><li>Photos, rating, amenities, room choices, and price.</li><li><b>AI highlights</b> for your stay — “8.6 across 2,254 reviews; free WiFi, fitness, parking.”</li><li>Reserve the room the agent recommends.</li></ul>
+          </div>
+          <div class="media"><img class="asset" src="assets/app-hotel.png" alt="Bay Landing Hotel detail page: photo gallery, 8.6 rating, amenities, AI-generated highlights, room choices with prices, reserve."><div class="asset-caption">HOTEL DETAIL · AI HIGHLIGHTS, ROOMS, RESERVE</div></div>
         </div>
       </section>
 
