@@ -36,6 +36,11 @@
     .asset{ max-height:600px; max-width:100%; width:auto; border:1px solid var(--line); border-radius:14px; box-shadow:0 12px 40px rgba(0,0,0,.5); }
     .asset-caption{ font-family:var(--mono); font-size:.4em; letter-spacing:.06em; color:var(--muted); margin-top:.8em; text-align:center; }
 
+    /* opener: two smaller stacked images */
+    .media.duo{ gap:1.2em; }
+    .media.duo figure{ margin:0; display:flex; flex-direction:column; align-items:center; }
+    .media.duo .asset{ max-height:248px; }
+
     .jd{ list-style:none; margin:.6em 0 0; padding:0; }
     .jd li{ position:relative; padding-left:1.15em; margin:.6em 0; font-size:.66em; color:var(--ink); line-height:1.4; }
     .jd li::before{ content:"\2192"; position:absolute; left:0; color:var(--amber); }
@@ -52,12 +57,6 @@
     .reveal .slides section{ text-align:left; }
     .reveal .slides section.center{ text-align:center; }
 
-    .stats{ display:flex; gap:0; margin-top:1em; border:1px solid var(--line); border-radius:12px; overflow:hidden; max-width:22em; }
-    .stat{ padding:.6em .9em; border-right:1px solid var(--line); flex:1; }
-    .stat:last-child{ border-right:0; }
-    .stat b{ display:block; font-size:1.4em; color:var(--amber); font-weight:800; line-height:1; }
-    .stat span{ font-family:var(--mono); font-size:.4em; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
-
     .reveal .progress{ color:var(--amber); }
     .reveal .controls{ color:var(--amber); }
   </style>
@@ -66,33 +65,22 @@
   <div class="reveal">
     <div class="slides">
 
-      <!-- TITLE -->
-      <section class="center" data-background-color="#141110">
-        <div class="kicker"><span class="dot">●</span> BUILD PORTFOLIO · GREG PROSL</div>
-        <h1>Things I've&nbsp;built.</h1>
-        <p class="sub" style="margin:1em auto 0;">AI-native builder &amp; technical product leader. Six start-ups, two exits. I ship the product, not the deck — these are the receipts.</p>
-        <p class="hint">Press <strong>→</strong> to advance · <strong>Esc</strong> for overview · <strong>F</strong> for fullscreen</p>
-      </section>
-
+      <!-- OPENER: identity + condensed deploy log (two smaller images) -->
       <section data-background-color="#141110">
         <div class="split">
           <div class="txt">
-            <div class="kicker"><span class="dot">●</span> PRODUCTION DEPLOY LOG · APR 17 — JUL 9 2026</div>
-            <h2>Shipping cadence, week by week.</h2>
-            <ul class="jd"><li><b>143 production deploys</b> across ~12 weeks — ~12/week, peaking at 23 mid-May.</li><li>Both marketplace sides, and the spine that clears transactions, came online.</li><li>Git-grounded: the week-by-week bars sum to 143.</li></ul>
+            <div class="kicker"><span class="dot">●</span> BUILD PORTFOLIO · GREG PROSL</div>
+            <h1 style="font-size:1.75em;margin-bottom:.1em;">Things I've&nbsp;built.</h1>
+            <ul class="jd">
+              <li>AI-native builder — <b>six start-ups, two exits.</b> I ship the product, not the deck.</li>
+              <li><b>143 production deploys in ~12 weeks</b> (~12/week, peaking at 23) — a two-sided Agent2Agent marketplace, shipped.</li>
+              <li>What follows are the receipts.</li>
+            </ul>
           </div>
-          <div class="media"><img class="asset" src="assets/deploy-log-1-cadence.png" alt="Week-by-week production deploy cadence bar chart, 143 deploys over 12 weeks peaking at 23 in mid-May."><div class="asset-caption">SHIPPING CADENCE (W16–W28)</div></div>
-        </div>
-      </section>
-
-      <section data-background-color="#141110">
-        <div class="split">
-          <div class="txt">
-            <div class="kicker"><span class="dot">●</span> PRODUCTION DEPLOY LOG · APR 17 — JUL 9 2026</div>
-            <h2>What each side got.</h2>
-            <ul class="jd"><li>Demand-side 14 · supply-side 10 · <b>transaction spine 17</b> · substrate 12.</li><li>~53 named landings on top of ~89 routine iterations.</li><li>Heaviest deliberate investment: the booking money-path.</li></ul>
+          <div class="media duo">
+            <figure><img class="asset" src="assets/deploy-log-1-cadence.png" alt="Week-by-week production deploy cadence, 143 deploys over 12 weeks peaking at 23 in mid-May."><figcaption class="asset-caption">SHIPPING CADENCE (W16–W28)</figcaption></figure>
+            <figure><img class="asset" src="assets/deploy-log-2-breakdown.png" alt="Named landings by market side: demand 14, supply 10, transaction spine 17, substrate 12, plus 89 iterations."><figcaption class="asset-caption">NAMED LANDINGS BY MARKET SIDE</figcaption></figure>
           </div>
-          <div class="media"><img class="asset" src="assets/deploy-log-2-breakdown.png" alt="Named landings grouped by market side: demand 14, supply 10, transaction spine 17, substrate 12, plus 89 iterations."><div class="asset-caption">NAMED LANDINGS BY MARKET SIDE</div></div>
         </div>
       </section>
 
@@ -101,20 +89,9 @@
           <div class="txt">
             <div class="kicker"><span class="dot">●</span> THE SURFACE · TRAVEL.AUGWORLDS.AI</div>
             <h2>An AI-native shopping surface.</h2>
-            <ul class="jd"><li><b>Conversational home</b> — “Where to next?” in plain language or voice.</li><li><b>One prompt to imagine, find, plan, book, track, and experience travel.</b></li><li>The surface a customer reaches from an AI channel — “your agent talking to theirs.”</li></ul>
+            <ul class="jd"><li><b>Conversational home</b> — “Where to next?” in plain language.</li><li><b>One prompt to imagine, find, plan, book, track, and experience travel.</b></li><li>The surface a customer reaches from an AI channel — “your agent talking to theirs.”</li><li>Voice or text, the same surface, same intent.</li></ul>
           </div>
           <div class="media"><img class="asset" src="assets/app-agent-1.png" alt="Conversational home: Welcome back Greg, Where to next, with quick actions."><div class="asset-caption">HOME · CONVERSATIONAL ENTRY (VOICE + TEXT)</div></div>
-        </div>
-      </section>
-
-      <section data-background-color="#141110">
-        <div class="split">
-          <div class="txt">
-            <div class="kicker"><span class="dot">●</span> THE SURFACE · TRAVEL.AUGWORLDS.AI</div>
-            <h2>One prompt, natural language.</h2>
-            <ul class="jd"><li>Type or speak intent — “compare flight options from PDX to SLC.”</li><li>No forms, no filter grid; the agent plans the search.</li><li>Voice or text, the same surface.</li></ul>
-          </div>
-          <div class="media"><img class="asset" src="assets/app-agent-2.png" alt="A typed natural-language query: compare flight options from PDX to SLC."><div class="asset-caption">ONE PROMPT → COMPARE FLIGHTS PDX→SLC</div></div>
         </div>
       </section>
 
