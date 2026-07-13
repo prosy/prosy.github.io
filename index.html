@@ -43,6 +43,12 @@
     .reveal .slides section.center{ text-align:center; }
     .reveal .progress{ color:var(--amber); }
     .reveal .controls{ color:var(--amber); }
+    /* click-to-zoom lightbox: images open at native resolution (scrollable) for readability */
+    .asset{ cursor:zoom-in; }
+    #lightbox{ position:fixed; inset:0; z-index:1000; display:none; overflow:auto; background:rgba(10,8,7,.94); cursor:zoom-out; }
+    #lightbox.open{ display:block; }
+    #lightbox img{ display:block; margin:2vmin auto 9vh; max-width:96vw; width:auto; height:auto; border-radius:8px; box-shadow:0 20px 80px rgba(0,0,0,.65); }
+    #lightbox .lb-hint{ position:fixed; bottom:2.2vh; left:0; right:0; text-align:center; font-family:var(--mono); font-size:12px; letter-spacing:.1em; color:var(--muted); pointer-events:none; }
   </style>
 </head>
 <body>
@@ -316,11 +322,27 @@
       </section>
     </div>
   </div>
+
+  <!-- click-to-zoom lightbox (populated on image click) -->
+  <div id="lightbox"><img alt=""><div class="lb-hint">click anywhere or press Esc to close</div></div>
+
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
   <script>
     Reveal.initialize({ hash:true, slideNumber:'c/t', controls:true, progress:true,
       transition:'fade', backgroundTransition:'fade', plugins:[ RevealNotes ] });
+    (function(){
+      var lb=document.getElementById('lightbox'), lbImg=lb.querySelector('img');
+      document.querySelectorAll('.reveal .asset').forEach(function(img){
+        img.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation();
+          lbImg.src=img.currentSrc||img.src; lb.scrollTop=0; lb.classList.add('open'); });
+      });
+      function close(){ lb.classList.remove('open'); lbImg.removeAttribute('src'); }
+      lb.addEventListener('click', close);
+      document.addEventListener('keydown', function(e){
+        if(lb.classList.contains('open') && e.key==='Escape'){ e.stopImmediatePropagation(); e.preventDefault(); close(); }
+      }, true);
+    })();
   </script>
 </body>
 </html>
