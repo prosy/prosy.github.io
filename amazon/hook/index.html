@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Greg Prosl — Build Portfolio</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <style>
+    :root{ --bg:#141110; --panel:#1e1a17; --ink:#ece7e0; --muted:#9a9088;
+      --amber:#e08a3c; --cyan:#6bb6c7; --line:#312a25;
+      --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+      --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+    .reveal{ font-family:var(--sans); color:var(--ink); font-size:32px; }
+    .reveal-viewport{ background:var(--bg); }
+    .reveal h1,.reveal h2,.reveal h3{ color:var(--ink); font-weight:700; letter-spacing:-.02em; text-transform:none; line-height:1.06; }
+    .reveal h1{ font-size:2.1em; }
+    .reveal h2{ font-size:1.32em; }
+    .reveal a{ color:var(--amber); }
+    .reveal strong{ color:#fff; }
+    .kicker{ font-family:var(--mono); font-size:.46em; letter-spacing:.16em; text-transform:uppercase; color:var(--amber); margin-bottom:.7em; }
+    .kicker .dot{ color:var(--amber); }
+    .sub{ color:var(--muted); font-size:.72em; line-height:1.4; max-width:20em; }
+    .split{ display:flex; gap:1.5em; align-items:center; width:100%; }
+    .split .txt{ flex:0 0 37%; }
+    .split .media{ flex:1; min-width:0; display:flex; flex-direction:column; align-items:center; }
+    .asset{ max-height:600px; max-width:100%; width:auto; border:1px solid var(--line); border-radius:14px; box-shadow:0 12px 40px rgba(0,0,0,.5); }
+    .asset-caption{ font-family:var(--mono); font-size:.4em; letter-spacing:.06em; color:var(--muted); margin-top:.8em; text-align:center; }
+    .media.duo{ gap:1.2em; }
+    .media.duo figure{ margin:0; display:flex; flex-direction:column; align-items:center; }
+    .media.duo .asset{ max-height:248px; }
+    .jd{ list-style:none; margin:.6em 0 0; padding:0; }
+    .jd li{ position:relative; padding-left:1.15em; margin:.6em 0; font-size:.66em; color:var(--ink); line-height:1.4; }
+    .jd li::before{ content:"\2192"; position:absolute; left:0; color:var(--amber); }
+    .jd li b{ color:#fff; }
+    .jd-wide{ max-width:26em; } .jd-wide li{ font-size:.72em; }
+    .placeholder{ width:100%; min-height:540px; border:2px dashed var(--line); border-radius:14px;
+      display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1.1em; padding:2.4em; text-align:center;
+      background:repeating-linear-gradient(45deg,#181512,#181512 12px,#1c1815 12px,#1c1815 24px); }
+    .placeholder .ph-badge{ font-family:var(--mono); font-size:.42em; letter-spacing:.2em; color:var(--amber); border:1px solid var(--amber); border-radius:20px; padding:.35em 1.1em; }
+    .placeholder .ph-note{ font-size:.58em; color:var(--muted); max-width:20em; line-height:1.5; }
+    .placeholder .ph-note b{ color:var(--ink); }
+    .reveal .slides section{ text-align:left; }
+    .reveal .slides section.center{ text-align:center; }
+    .reveal .progress{ color:var(--amber); }
+    .reveal .controls{ color:var(--amber); }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section data-background-color="#141110">
+        <div class="split">
+          <div class="txt">
+            <div class="kicker"><span class="dot">●</span> BUILD PORTFOLIO · GREG PROSL</div>
+            <h1 style="font-size:1.75em;margin-bottom:.1em;">Things I've&nbsp;built.</h1>
+            <ul class="jd">
+              <li>AI-native builder — <b>six start-ups, two exits.</b> I ship the product, not the deck.</li>
+              <li><b>143 production deploys in ~12 weeks</b> (~12/week, peaking at 23) — a two-sided Agent2Agent marketplace, shipped.</li>
+              <li>What follows are the receipts.</li>
+            </ul>
+          </div>
+          <div class="media duo">
+            <figure><img class="asset" src="/assets/deploy-log-1-cadence.png" alt="Week-by-week production deploy cadence, 143 deploys over 12 weeks peaking at 23 in mid-May."><figcaption class="asset-caption">SHIPPING CADENCE (W16–W28)</figcaption></figure>
+            <figure><img class="asset" src="/assets/deploy-log-2-breakdown.png" alt="Named landings by market side: demand 14, supply 10, transaction spine 17, substrate 12, plus 89 iterations."><figcaption class="asset-caption">NAMED LANDINGS BY MARKET SIDE</figcaption></figure>
+          </div>
+        </div>
+      </section>
+
+      <section data-background-color="#141110">
+        <div class="split">
+          <div class="txt">
+            <div class="kicker"><span class="dot">●</span> SHOP → BOOK · FLIGHTS</div>
+            <h2>The agent, working.</h2>
+            <ul class="jd"><li>Natural-language query → <b>“Found 66 itineraries, from $78.”</b></li><li><b>Best vs Cheapest</b> ranked results — each with fares, cabin, and one-tap actions.</li><li>Learns in the flow — <b>“save SEA as your home airport?”</b> captured as a declared preference.</li></ul>
+          </div>
+          <div class="media"><img class="asset" src="/assets/app-agent-convo-1.png" alt="Conversational flight search: user asks SFO to SEA Sept 21, agent returns 66 itineraries ranked Best or Cheapest, with a prompt to save SEA as home airport."><div class="asset-caption">FLIGHT SEARCH · RANKED RESULTS + IN-FLOW LEARNING</div></div>
+        </div>
+      </section>
+
+      <section data-background-color="#141110">
+        <div class="split">
+          <div class="txt">
+            <div class="kicker"><span class="dot">●</span> TRANSACTION SPINE · AGENTS TRANSACT</div>
+            <h2>Safe agent checkout.</h2>
+            <ul class="jd"><li>The money-path end: confirm the flight, <b>book it</b> — Alaska SFO→SEA, confirmed total $118.40.</li><li><b>Human-in-the-loop</b>: review price → confirm → book; an agent can't purchase unverified.</li><li>Data-minimized — “used only for this booking, not stored beyond it.”</li></ul>
+          </div>
+          <div class="media"><img class="asset" src="/assets/app-confirm-2.png" alt="Confirm Your Flight: Alaska SFO to SEA nonstop $118, passenger details, confirmed total 118.40 USD, Book This Flight button, data-minimization note."><div class="asset-caption">CONFIRM YOUR FLIGHT · REVIEW → BOOK</div></div>
+        </div>
+      </section>
+
+      <section data-background-color="#141110">
+        <div class="kicker"><span class="dot">●</span> POINT OF VIEW · GREG PROSL</div>
+        <h2>The bet, and what's next.</h2>
+        <ul class="jd jd-wide"><li>My bet: agent-native commerce needs a <b>safe transaction layer</b> before a better search box — so I built the authorization boundary and human-in-the-loop first.</li><li>It's working: <b>880+ brand agents</b>, a live money-path, and measurable demand (144 matches, 2 bookings).</li><li>What I'd build next: the <b>monetization side</b> — turning a two-sided agent marketplace into merchant / offer revenue without breaking the experience.</li><li>Why it maps to your surface: I've shipped surface, ranking, and transaction at startup speed — I'd bring that to an AI-native shopping surface at scale.</li></ul>
+      </section>
+
+      <section class="center" data-background-color="#141110">
+        <div class="kicker"><span class="dot">●</span> GREG PROSL</div>
+        <h2>Let's build.</h2>
+        <p class="sub" style="margin:.8em auto 0;">gprosl@gmail.com · Seattle, WA · <a href="https://travel.augworlds.ai">travel.augworlds.ai</a></p>
+      </section>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script>
+    Reveal.initialize({ hash:true, slideNumber:'c/t', controls:true, progress:true,
+      transition:'fade', backgroundTransition:'fade', plugins:[ RevealNotes ] });
+  </script>
+</body>
+</html>

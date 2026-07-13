@@ -4,17 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Greg Prosl — Build Portfolio</title>
-
-  <!-- reveal.js core (CDN, no build step) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
-
   <style>
-    :root{
-      --bg:#141110; --panel:#1e1a17; --ink:#ece7e0; --muted:#9a9088;
+    :root{ --bg:#141110; --panel:#1e1a17; --ink:#ece7e0; --muted:#9a9088;
       --amber:#e08a3c; --cyan:#6bb6c7; --line:#312a25;
       --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
-      --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-    }
+      --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
     .reveal{ font-family:var(--sans); color:var(--ink); font-size:32px; }
     .reveal-viewport{ background:var(--bg); }
     .reveal h1,.reveal h2,.reveal h3{ color:var(--ink); font-weight:700; letter-spacing:-.02em; text-transform:none; line-height:1.06; }
@@ -22,41 +17,30 @@
     .reveal h2{ font-size:1.32em; }
     .reveal a{ color:var(--amber); }
     .reveal strong{ color:#fff; }
-
     .kicker{ font-family:var(--mono); font-size:.46em; letter-spacing:.16em; text-transform:uppercase; color:var(--amber); margin-bottom:.7em; }
     .kicker .dot{ color:var(--amber); }
     .sub{ color:var(--muted); font-size:.72em; line-height:1.4; max-width:20em; }
-    .hint{ font-family:var(--mono); font-size:.4em; color:var(--muted); letter-spacing:.08em; margin-top:1.2em; }
-
-    /* one self-contained slide: text left, media right */
     .split{ display:flex; gap:1.5em; align-items:center; width:100%; }
     .split .txt{ flex:0 0 37%; }
     .split .media{ flex:1; min-width:0; display:flex; flex-direction:column; align-items:center; }
-
     .asset{ max-height:600px; max-width:100%; width:auto; border:1px solid var(--line); border-radius:14px; box-shadow:0 12px 40px rgba(0,0,0,.5); }
     .asset-caption{ font-family:var(--mono); font-size:.4em; letter-spacing:.06em; color:var(--muted); margin-top:.8em; text-align:center; }
-
-    /* opener: two smaller stacked images */
     .media.duo{ gap:1.2em; }
     .media.duo figure{ margin:0; display:flex; flex-direction:column; align-items:center; }
     .media.duo .asset{ max-height:248px; }
-
     .jd{ list-style:none; margin:.6em 0 0; padding:0; }
     .jd li{ position:relative; padding-left:1.15em; margin:.6em 0; font-size:.66em; color:var(--ink); line-height:1.4; }
     .jd li::before{ content:"\2192"; position:absolute; left:0; color:var(--amber); }
     .jd li b{ color:#fff; }
-
-    /* placeholder for slides whose image doesn't exist yet */
+    .jd-wide{ max-width:26em; } .jd-wide li{ font-size:.72em; }
     .placeholder{ width:100%; min-height:540px; border:2px dashed var(--line); border-radius:14px;
       display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1.1em; padding:2.4em; text-align:center;
       background:repeating-linear-gradient(45deg,#181512,#181512 12px,#1c1815 12px,#1c1815 24px); }
     .placeholder .ph-badge{ font-family:var(--mono); font-size:.42em; letter-spacing:.2em; color:var(--amber); border:1px solid var(--amber); border-radius:20px; padding:.35em 1.1em; }
     .placeholder .ph-note{ font-size:.58em; color:var(--muted); max-width:20em; line-height:1.5; }
     .placeholder .ph-note b{ color:var(--ink); }
-
     .reveal .slides section{ text-align:left; }
     .reveal .slides section.center{ text-align:center; }
-
     .reveal .progress{ color:var(--amber); }
     .reveal .controls{ color:var(--amber); }
   </style>
@@ -65,7 +49,6 @@
   <div class="reveal">
     <div class="slides">
 
-      <!-- OPENER: identity + condensed deploy log (two smaller images) -->
       <section data-background-color="#141110">
         <div class="split">
           <div class="txt">
@@ -78,8 +61,8 @@
             </ul>
           </div>
           <div class="media duo">
-            <figure><img class="asset" src="assets/deploy-log-1-cadence.png" alt="Week-by-week production deploy cadence, 143 deploys over 12 weeks peaking at 23 in mid-May."><figcaption class="asset-caption">SHIPPING CADENCE (W16–W28)</figcaption></figure>
-            <figure><img class="asset" src="assets/deploy-log-2-breakdown.png" alt="Named landings by market side: demand 14, supply 10, transaction spine 17, substrate 12, plus 89 iterations."><figcaption class="asset-caption">NAMED LANDINGS BY MARKET SIDE</figcaption></figure>
+            <figure><img class="asset" src="/assets/deploy-log-1-cadence.png" alt="Week-by-week production deploy cadence, 143 deploys over 12 weeks peaking at 23 in mid-May."><figcaption class="asset-caption">SHIPPING CADENCE (W16–W28)</figcaption></figure>
+            <figure><img class="asset" src="/assets/deploy-log-2-breakdown.png" alt="Named landings by market side: demand 14, supply 10, transaction spine 17, substrate 12, plus 89 iterations."><figcaption class="asset-caption">NAMED LANDINGS BY MARKET SIDE</figcaption></figure>
           </div>
         </div>
       </section>
@@ -91,7 +74,7 @@
             <h2>An AI-native shopping surface.</h2>
             <ul class="jd"><li><b>Conversational home</b> — “Where to next?” in plain language.</li><li><b>One prompt to imagine, find, plan, book, track, and experience travel.</b></li><li>The surface a customer reaches from an AI channel — “your agent talking to theirs.”</li><li>Voice or text, the same surface, same intent.</li></ul>
           </div>
-          <div class="media"><img class="asset" src="assets/app-agent-1.png" alt="Conversational home: Welcome back Greg, Where to next, with quick actions."><div class="asset-caption">HOME · CONVERSATIONAL ENTRY (VOICE + TEXT)</div></div>
+          <div class="media"><img class="asset" src="/assets/app-agent-1.png" alt="Conversational home: Welcome back Greg, Where to next, with quick actions."><div class="asset-caption">HOME · CONVERSATIONAL ENTRY (VOICE + TEXT)</div></div>
         </div>
       </section>
 
@@ -102,7 +85,7 @@
             <h2>A two-sided agent marketplace.</h2>
             <ul class="jd"><li><b>Supply:</b> 880+ travel brands, each run as an agent; self-serve “Claim this agent.”</li><li><b>Demand:</b> your team of agents plans, books, and saves for you.</li><li><b>Curation-first ranking</b> — trusted-partner promotion, US-first tiers.</li></ul>
           </div>
-          <div class="media"><img class="asset" src="assets/app-marketplace.png" alt="Agent marketplace card grid with Add to My Team, On My Team, and Claim this agent."><div class="asset-caption">BRAND AGENTS · SELF-SERVE CLAIM + ADD TO TEAM</div></div>
+          <div class="media"><img class="asset" src="/assets/app-marketplace.png" alt="Agent marketplace card grid with Add to My Team, On My Team, and Claim this agent."><div class="asset-caption">BRAND AGENTS · SELF-SERVE CLAIM + ADD TO TEAM</div></div>
         </div>
       </section>
 
@@ -113,7 +96,7 @@
             <h2>Your team of agents.</h2>
             <ul class="jd"><li>Airlines and hotels on your team, each carrying its loyalty program.</li><li>Configure any agent to watch routes, prices, or offers.</li><li>Travis — a general-manager agent — coordinates the team.</li></ul>
           </div>
-          <div class="media"><img class="asset" src="assets/app-agents-1.png" alt="My Agents: the user's team of airline and hotel agents, each On Team with a loyalty program."><div class="asset-caption">MY AGENTS · YOUR TEAM</div></div>
+          <div class="media"><img class="asset" src="/assets/app-agents-1.png" alt="My Agents: the user's team of airline and hotel agents, each On Team with a loyalty program."><div class="asset-caption">MY AGENTS · YOUR TEAM</div></div>
         </div>
       </section>
 
@@ -124,7 +107,7 @@
             <h2>Deploy brands as your agents.</h2>
             <ul class="jd"><li>Add any brand to your team from the marketplace.</li><li>Per-agent configuration and status.</li><li>One team spanning airlines, hotels, and cars.</li></ul>
           </div>
-          <div class="media"><img class="asset" src="assets/app-agents-2.png" alt="My Agents continued: additional team agents and per-agent configuration."><div class="asset-caption">CONFIGURE EACH AGENT</div></div>
+          <div class="media"><img class="asset" src="/assets/app-agents-2.png" alt="My Agents continued: additional team agents and per-agent configuration."><div class="asset-caption">CONFIGURE EACH AGENT</div></div>
         </div>
       </section>
 
@@ -135,7 +118,7 @@
             <h2>Multi-category supply.</h2>
             <ul class="jd"><li>Hotels and hotel brands alongside airlines.</li><li>The same agent model across verticals.</li><li>Breadth without a coordination tax.</li></ul>
           </div>
-          <div class="media"><img class="asset" src="assets/app-agents-3.png" alt="My Agents continued: hotel brands and additional agents across categories."><div class="asset-caption">AGENTS ACROSS VERTICALS</div></div>
+          <div class="media"><img class="asset" src="/assets/app-agents-3.png" alt="My Agents continued: hotel brands and additional agents across categories."><div class="asset-caption">AGENTS ACROSS VERTICALS</div></div>
         </div>
       </section>
 
@@ -146,7 +129,7 @@
             <h2>A brand, running as an agent.</h2>
             <ul class="jd"><li>Callable capabilities: <b>flight search, status, promotions, Miles&amp;Smiles, city guide.</b></li><li>Searches real-time inventory and matches deals to your preferences.</li><li>Self-serve + measurable — claim, add, and live traveler-match / booking counters.</li></ul>
           </div>
-          <div class="media"><img class="asset" src="assets/app-turkish-combot.png" alt="Turkish Airlines ComBot detail page: capabilities, Miles and Smiles connected, flight status, search, promotions, city guide, claim and add buttons, 8 traveler matches."><div class="asset-caption">TURKISH AIRLINES COMBOT · CAPABILITIES + LIVE COUNTERS</div></div>
+          <div class="media"><img class="asset" src="/assets/app-turkish-combot.png" alt="Turkish Airlines ComBot detail page: capabilities, Miles and Smiles connected, flight status, search, promotions, city guide, claim and add buttons, 8 traveler matches."><div class="asset-caption">TURKISH AIRLINES COMBOT · CAPABILITIES + LIVE COUNTERS</div></div>
         </div>
       </section>
 
@@ -157,7 +140,7 @@
             <h2>Live fares, real traction.</h2>
             <ul class="jd"><li>Alaska agent surfaces <b>recent fares, refreshed live</b> (SEA→SFO) — search + flight-status built in.</li><li><b>144 traveler matches · 2 bookings</b> — the marketplace is producing measurable demand.</li><li>Same model as any brand: claim, configure, add to your team.</li></ul>
           </div>
-          <div class="media"><img class="asset" src="assets/app-alaska-combot.png" alt="Alaska Airlines ComBot: Flight Search capability, live recent fares SEA to SFO, find flights and flight status, claim and configure buttons, counters showing 144 traveler matches and 2 bookings."><div class="asset-caption">ALASKA COMBOT · LIVE FARES + 144 MATCHES / 2 BOOKINGS</div></div>
+          <div class="media"><img class="asset" src="/assets/app-alaska-combot.png" alt="Alaska Airlines ComBot: Flight Search capability, live recent fares SEA to SFO, find flights and flight status, claim and configure buttons, counters showing 144 traveler matches and 2 bookings."><div class="asset-caption">ALASKA COMBOT · LIVE FARES + 144 MATCHES / 2 BOOKINGS</div></div>
         </div>
       </section>
 
@@ -168,7 +151,7 @@
             <h2>Hotels, as agents too.</h2>
             <ul class="jd"><li>The same ComBot model on the <b>hotel</b> side — Marriott, with live-refreshed sample rates.</li><li>Hotel-search capability; find-hotels built into the agent card.</li><li>Airlines, hotels, cars — one agent pattern across all supply.</li></ul>
           </div>
-          <div class="media"><img class="asset" src="assets/app-marriott-combot.png" alt="Marriott International ComBot: Hotel Chain Agent, Hotel Search capability, live recent rate for a Fairfield Inn, find hotels form, claim and configure buttons."><div class="asset-caption">MARRIOTT COMBOT · HOTEL AGENT, LIVE RATES</div></div>
+          <div class="media"><img class="asset" src="/assets/app-marriott-combot.png" alt="Marriott International ComBot: Hotel Chain Agent, Hotel Search capability, live recent rate for a Fairfield Inn, find hotels form, claim and configure buttons."><div class="asset-caption">MARRIOTT COMBOT · HOTEL AGENT, LIVE RATES</div></div>
         </div>
       </section>
 
@@ -179,7 +162,7 @@
             <h2>The agent, working.</h2>
             <ul class="jd"><li>Natural-language query → <b>“Found 66 itineraries, from $78.”</b></li><li><b>Best vs Cheapest</b> ranked results — each with fares, cabin, and one-tap actions.</li><li>Learns in the flow — <b>“save SEA as your home airport?”</b> captured as a declared preference.</li></ul>
           </div>
-          <div class="media"><img class="asset" src="assets/app-agent-convo-1.png" alt="Conversational flight search: user asks SFO to SEA Sept 21, agent returns 66 itineraries ranked Best or Cheapest, with a prompt to save SEA as home airport."><div class="asset-caption">FLIGHT SEARCH · RANKED RESULTS + IN-FLOW LEARNING</div></div>
+          <div class="media"><img class="asset" src="/assets/app-agent-convo-1.png" alt="Conversational flight search: user asks SFO to SEA Sept 21, agent returns 66 itineraries ranked Best or Cheapest, with a prompt to save SEA as home airport."><div class="asset-caption">FLIGHT SEARCH · RANKED RESULTS + IN-FLOW LEARNING</div></div>
         </div>
       </section>
 
@@ -190,7 +173,7 @@
             <h2>Safe agent checkout.</h2>
             <ul class="jd"><li>The money-path end: confirm the flight, <b>book it</b> — Alaska SFO→SEA, confirmed total $118.40.</li><li><b>Human-in-the-loop</b>: review price → confirm → book; an agent can't purchase unverified.</li><li>Data-minimized — “used only for this booking, not stored beyond it.”</li></ul>
           </div>
-          <div class="media"><img class="asset" src="assets/app-confirm-2.png" alt="Confirm Your Flight: Alaska SFO to SEA nonstop $118, passenger details, confirmed total 118.40 USD, Book This Flight button, data-minimization note."><div class="asset-caption">CONFIRM YOUR FLIGHT · REVIEW → BOOK</div></div>
+          <div class="media"><img class="asset" src="/assets/app-confirm-2.png" alt="Confirm Your Flight: Alaska SFO to SEA nonstop $118, passenger details, confirmed total 118.40 USD, Book This Flight button, data-minimization note."><div class="asset-caption">CONFIRM YOUR FLIGHT · REVIEW → BOOK</div></div>
         </div>
       </section>
 
@@ -201,7 +184,7 @@
             <h2>Hotels, same surface.</h2>
             <ul class="jd"><li>“Find me hotels in SFO, Sept 21–24, 2 persons” → <b>8 hotels from $158/night.</b></li><li>Ranked <b>with reasons</b> — “free airport shuttle justifies premium over cheaper options.”</li><li>Choose a room or save to your agents, in the conversation.</li></ul>
           </div>
-          <div class="media"><img class="asset" src="assets/app-agent-convo-2.png" alt="Conversational hotel search returning 8 hotels with ratings, prices, and AI reasoning, plus choose-room and save actions."><div class="asset-caption">HOTEL SEARCH · RANKED WITH REASONING</div></div>
+          <div class="media"><img class="asset" src="/assets/app-agent-convo-2.png" alt="Conversational hotel search returning 8 hotels with ratings, prices, and AI reasoning, plus choose-room and save actions."><div class="asset-caption">HOTEL SEARCH · RANKED WITH REASONING</div></div>
         </div>
       </section>
 
@@ -212,7 +195,7 @@
             <h2>A hotel, in depth.</h2>
             <ul class="jd"><li>Photos, rating, amenities, room choices, and price.</li><li><b>AI highlights</b> for your stay — “8.6 across 2,254 reviews; free WiFi, fitness, parking.”</li><li>Reserve the room the agent recommends.</li></ul>
           </div>
-          <div class="media"><img class="asset" src="assets/app-hotel.png" alt="Bay Landing Hotel detail page: photo gallery, 8.6 rating, amenities, AI-generated highlights, room choices with prices, reserve."><div class="asset-caption">HOTEL DETAIL · AI HIGHLIGHTS, ROOMS, RESERVE</div></div>
+          <div class="media"><img class="asset" src="/assets/app-hotel.png" alt="Bay Landing Hotel detail page: photo gallery, 8.6 rating, amenities, AI-generated highlights, room choices with prices, reserve."><div class="asset-caption">HOTEL DETAIL · AI HIGHLIGHTS, ROOMS, RESERVE</div></div>
         </div>
       </section>
 
@@ -223,7 +206,7 @@
             <h2>Agents that work while you don't.</h2>
             <ul class="jd"><li>Watch a route and a <b>price ceiling</b>; re-run on a schedule; alert on a match.</li><li>Proactive monitoring, not a one-shot search — SEA→PEK matched, alert sent.</li><li>Pause, stop, and per-route status the user controls.</li></ul>
           </div>
-          <div class="media"><img class="asset" src="assets/app-watchers.png" alt="Watchers: routes tracked with a max price, active status, best-so-far prices, match-found alert sent."><div class="asset-caption">WATCHERS · PRICE-CEILING TRACKING, ALERT ON MATCH</div></div>
+          <div class="media"><img class="asset" src="/assets/app-watchers.png" alt="Watchers: routes tracked with a max price, active status, best-so-far prices, match-found alert sent."><div class="asset-caption">WATCHERS · PRICE-CEILING TRACKING, ALERT ON MATCH</div></div>
         </div>
       </section>
 
@@ -234,7 +217,7 @@
             <h2>Declared preferences.</h2>
             <ul class="jd"><li>Explicit inputs: home airport, default airline / hotel / car, cabin, seat.</li><li>The user states them; the system respects them.</li><li>The top of the precedence ladder.</li></ul>
           </div>
-          <div class="media"><img class="asset" src="assets/app-settings-1.png" alt="Settings My Defaults: home airport SEA, default airline, hotel, rental car, cabin, seat, plus custom defaults."><div class="asset-caption">MY DEFAULTS · EXPLICIT DECLARED PREFERENCES</div></div>
+          <div class="media"><img class="asset" src="/assets/app-settings-1.png" alt="Settings My Defaults: home airport SEA, default airline, hotel, rental car, cabin, seat, plus custom defaults."><div class="asset-caption">MY DEFAULTS · EXPLICIT DECLARED PREFERENCES</div></div>
         </div>
       </section>
 
@@ -245,7 +228,7 @@
             <h2>Declared + inferred, kept honest.</h2>
             <ul class="jd"><li><b>Inferred profile:</b> encrypted at rest, built from observed behavior (15 observations).</li><li><b>Suggest-only</b> — inferred ranks below anything the user declared.</li><li>Product-defined precedence turns signals into ranking; never a hard filter.</li></ul>
           </div>
-          <div class="media"><img class="asset" src="assets/app-settings-5.png" alt="Settings Privacy: Declared Preferences, an encrypted Inferred Profile based on 15 observations, and a recent-activity log."><div class="asset-caption">PRIVACY · DECLARED + ENCRYPTED INFERRED PROFILE + ACTIVITY</div></div>
+          <div class="media"><img class="asset" src="/assets/app-settings-5.png" alt="Settings Privacy: Declared Preferences, an encrypted Inferred Profile based on 15 observations, and a recent-activity log."><div class="asset-caption">PRIVACY · DECLARED + ENCRYPTED INFERRED PROFILE + ACTIVITY</div></div>
         </div>
       </section>
 
@@ -256,7 +239,7 @@
             <h2>A profile that builds itself.</h2>
             <ul class="jd"><li>Forward a booking confirmation — the agent learns airlines, hotels, and preferences from real trips.</li><li>Calendar sync (Google connected).</li><li>LLM-native ingest → unify → single customer view.</li></ul>
           </div>
-          <div class="media"><img class="asset" src="assets/app-settings-3.png" alt="Settings Connections: personal email-forwarding address, auto-forwarding setup, Google Calendar connected."><div class="asset-caption">CONNECTIONS · EMAIL FORWARDING + CALENDAR SYNC</div></div>
+          <div class="media"><img class="asset" src="/assets/app-settings-3.png" alt="Settings Connections: personal email-forwarding address, auto-forwarding setup, Google Calendar connected."><div class="asset-caption">CONNECTIONS · EMAIL FORWARDING + CALENDAR SYNC</div></div>
         </div>
       </section>
 
@@ -267,7 +250,7 @@
             <h2>Loyalty, in one place.</h2>
             <ul class="jd"><li>Unified balances across airlines, hotels, cars, and cards.</li><li>Forward a statement — the agent reads what it can.</li><li>A loyalty signal that feeds personalization.</li></ul>
           </div>
-          <div class="media"><img class="asset" src="assets/app-points.png" alt="Points and Loyalty Programs: add a program, forward a statement, unified balances across brands."><div class="asset-caption">POINTS · UNIFIED LOYALTY, STATEMENT-FORWARD INGEST</div></div>
+          <div class="media"><img class="asset" src="/assets/app-points.png" alt="Points and Loyalty Programs: add a program, forward a statement, unified balances across brands."><div class="asset-caption">POINTS · UNIFIED LOYALTY, STATEMENT-FORWARD INGEST</div></div>
         </div>
       </section>
 
@@ -278,7 +261,7 @@
             <h2>Meet the user where they are.</h2>
             <ul class="jd"><li><b>WhatsApp + email</b> delivery: confirmations, price and watcher alerts.</li><li>Transactional messaging, not a chat with Travis.</li><li>International format, opt-in.</li></ul>
           </div>
-          <div class="media"><img class="asset" src="assets/app-settings-2.png" alt="Settings WhatsApp: phone number and enable-WhatsApp toggle for confirmations and alerts."><div class="asset-caption">WHATSAPP · MULTI-CHANNEL DELIVERY</div></div>
+          <div class="media"><img class="asset" src="/assets/app-settings-2.png" alt="Settings WhatsApp: phone number and enable-WhatsApp toggle for confirmations and alerts."><div class="asset-caption">WHATSAPP · MULTI-CHANNEL DELIVERY</div></div>
         </div>
       </section>
 
@@ -289,7 +272,7 @@
             <h2>User-owned control.</h2>
             <ul class="jd"><li>Granular toggles: confirmations, price alerts, watcher matches.</li><li>Timezone, currency, and date-format display.</li><li>Explicit, reversible account delete.</li></ul>
           </div>
-          <div class="media"><img class="asset" src="assets/app-settings-4.png" alt="Settings Notifications: email and push toggles, notify-about checkboxes, display settings, danger-zone delete."><div class="asset-caption">NOTIFICATIONS · GRANULAR, USER-CONTROLLED</div></div>
+          <div class="media"><img class="asset" src="/assets/app-settings-4.png" alt="Settings Notifications: email and push toggles, notify-about checkboxes, display settings, danger-zone delete."><div class="asset-caption">NOTIFICATIONS · GRANULAR, USER-CONTROLLED</div></div>
         </div>
       </section>
 
@@ -300,7 +283,7 @@
             <h2>Sensitive data, encrypted.</h2>
             <ul class="jd"><li>Documents encrypted at rest; only the owner can view them.</li><li>Deliberate data-minimization — the product stopped storing passports.</li><li>The trust posture agent commerce needs.</li></ul>
           </div>
-          <div class="media"><img class="asset" src="assets/app-documents.png" alt="Travel Documents: encrypted-and-secure banner, cards for passport, visa, insurance, Global Entry, TSA PreCheck."><div class="asset-caption">TRAVEL DOCUMENTS · ENCRYPTED AT REST, OWNER-ONLY</div></div>
+          <div class="media"><img class="asset" src="/assets/app-documents.png" alt="Travel Documents: encrypted-and-secure banner, cards for passport, visa, insurance, Global Entry, TSA PreCheck."><div class="asset-caption">TRAVEL DOCUMENTS · ENCRYPTED AT REST, OWNER-ONLY</div></div>
         </div>
       </section>
 
@@ -311,7 +294,7 @@
             <h2>Every trip in one place.</h2>
             <ul class="jd"><li>Booked itineraries and upcoming trips, assembled from bookings and forwarded confirmations.</li><li>Calendar-synced timeline.</li><li>The record the agents plan around.</li></ul>
           </div>
-          <div class="media"><div class="placeholder"><div class="ph-badge">PLACEHOLDER</div><div class="ph-note">Suggested image: the <b>Trips</b> view (a left-nav item, not captured in this set) — an itinerary/timeline of upcoming and past trips. Reshoot from travel.augworlds.ai → Trips.</div></div></div>
+          <div class="media"><div class="placeholder"><div class="ph-badge">PLACEHOLDER</div><div class="ph-note">Suggested image: the <b>Trips</b> view (a left-nav item, not captured yet) — an itinerary/timeline of upcoming and past trips. Reshoot from travel.augworlds.ai → Trips.</div></div></div>
         </div>
       </section>
 
@@ -322,22 +305,17 @@
             <h2>Travel is social.</h2>
             <ul class="jd"><li>Share trips, flights, and experiences; see what friends are planning.</li><li>A demand-side discovery loop on the commerce surface.</li></ul>
           </div>
-          <div class="media"><img class="asset" src="assets/app-friends.png" alt="Vibe Sharing: my experiences and shared-with-me cards for trips, flights, hotels, dinners, concerts."><div class="asset-caption">VIBE SHARING · SHARE + DISCOVER TRIPS</div></div>
+          <div class="media"><img class="asset" src="/assets/app-friends.png" alt="Vibe Sharing: my experiences and shared-with-me cards for trips, flights, hotels, dinners, concerts."><div class="asset-caption">VIBE SHARING · SHARE + DISCOVER TRIPS</div></div>
         </div>
       </section>
 
-      <!-- CLOSE -->
       <section class="center" data-background-color="#141110">
         <div class="kicker"><span class="dot">●</span> GREG PROSL</div>
         <h2>Let's build.</h2>
         <p class="sub" style="margin:.8em auto 0;">gprosl@gmail.com · Seattle, WA · <a href="https://travel.augworlds.ai">travel.augworlds.ai</a></p>
       </section>
-
-      <!-- To add a slide: copy any <section> above; swap kicker / title / <li> bullets / <img src> / caption.
-           No image yet? Use the .placeholder block and note the image you need. -->
     </div>
   </div>
-
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
   <script>
