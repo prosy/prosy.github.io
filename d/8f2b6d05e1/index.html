@@ -77,17 +77,6 @@
       <section data-background-color="#141110">
         <div class="split">
           <div class="txt">
-            <div class="kicker"><span class="dot">●</span> THE PROJECT · TRAVEL.AUGWORLDS.AI</div>
-            <h2>An AI-native shopping surface.</h2>
-            <ul class="jd"><li><b>Conversational home</b> — “Where to next?” in plain language.</li><li><b>One prompt to imagine, find, plan, book, track, and experience travel.</b></li><li>The surface a customer reaches from an AI channel — “your agent talking to theirs.”</li><li>Voice or text - same surface, same result.</li></ul>
-          </div>
-          <div class="media"><img class="asset" src="../../assets/app-agent-1.png" alt="Conversational home: Welcome back Greg, Where to next, with quick actions."><div class="asset-caption">HOME · CONVERSATIONAL ENTRY (VOICE + TEXT)</div></div>
-        </div>
-      </section>
-
-      <section data-background-color="#141110">
-        <div class="split">
-          <div class="txt">
             <div class="kicker"><span class="dot">●</span> SHOP → BOOK · FLIGHTS</div>
             <h2>The agent, working.</h2>
             <ul class="jd"><li>Natural-language query → <b>“Found 66 itineraries, from $78.”</b></li><li><b>Best vs Cheapest</b> ranked results — each with fares, cabin, and one-tap actions.</li><li>Learns in the flow — <b>“save SEA as your home airport?”</b> captured as a declared preference.</li></ul>
@@ -99,45 +88,40 @@
       <section data-background-color="#141110">
         <div class="split">
           <div class="txt">
-            <div class="kicker"><span class="dot">●</span> RANKING · DETERMINISTIC BY DESIGN</div>
-            <h2>Ranking you can explain, line by line.</h2>
-            <ul class="jd"><li>Baseline: earliest departure, price as tiebreak. Then a <b>bounded single-carrier promotion</b> — only within +10% price and +20% duration, matching stops, cabin, and currency.</li><li><b>Loyalty, team membership, and marketplace tier are annotation only.</b> They change what the card says. They do not change where it sits.</li><li><b>Never a learned ranker.</b> Every position is a rule I can point at in the code and defend.</li></ul>
+            <div class="kicker"><span class="dot">●</span> RETRIEVAL · DETERMINISTIC RAG</div>
+            <h2>Retrieval I built, not bought.</h2>
+            <ul class="jd"><li>A deterministic, citation-based RAG service over a multimodal corpus — <b>FastAPI / Python</b>, BM25, live on Cloud Run.</li><li><b>The LLM interprets the question. It never writes the answer.</b> Every response traces to a source section.</li><li>Pages decomposed into atomic answer-units so a machine can actually comprehend them.</li></ul>
           </div>
-          <div class="media"><div class="placeholder"><div class="ph-badge">PLACEHOLDER</div><div class="ph-note">Suggested image: the <b>comparator chain in code</b> (posture/flight-ranking.ts) beside the ranked result list it produces — the rule and its output, side by side.</div></div></div>
+          <div class="media"><div class="placeholder"><div class="ph-badge">PLACEHOLDER</div><div class="ph-note">Suggested image: the <b>D-RAG answer view</b> — a question, the returned answer, and the section-level citation/evidence trail beside it. Capture from the live Cloud Run service.</div></div></div>
         </div>
       </section>
 
       <section data-background-color="#141110">
         <div class="split">
           <div class="txt">
-            <div class="kicker"><span class="dot">●</span> THE MARKETPLACE · AGENTIC COMMERCE</div>
-            <h2>A two-sided agent marketplace.</h2>
-            <ul class="jd"><li><b>Supply:</b> 880+ travel brands, each run as an agent; self-serve “Claim this agent.”</li><li><b>Demand:</b> your team of agents plans, books, and saves for you.</li><li><b>Curation-first ranking</b> — trusted-partner promotion, US-first tiers.</li></ul>
+            <div class="kicker"><span class="dot">●</span> PRIMITIVE · EXPLANATIONS</div>
+            <h2>Every answer carries its evidence.</h2>
+            <ul class="jd"><li>Section-level evidence attached to each answer, plus a <b>three-band confidence signal</b>.</li><li>Deterministic authority-join: one source of truth per section; byte-identical reruns.</li><li>An answer a user can check is an answer a user can trust.</li></ul>
           </div>
-          <div class="media"><img class="asset" src="../../assets/app-marketplace.png" alt="Agent marketplace card grid with Add to My Team, On My Team, and Claim this agent."><div class="asset-caption">BRAND AGENTS · SELF-SERVE CLAIM + ADD TO TEAM</div></div>
+          <div class="media"><div class="placeholder"><div class="ph-badge">PLACEHOLDER</div><div class="ph-note">Suggested image: the <b>confidence band + evidence panel</b> from D-RAG (the 3-band display). Alternative: a side-by-side of the same query run twice, byte-identical.</div></div></div>
         </div>
       </section>
 
       <section data-background-color="#141110">
         <div class="split">
           <div class="txt">
-            <div class="kicker"><span class="dot">●</span> FIRST LIVE BRAND AGENT · TURKISH AIRLINES</div>
-            <h2>A brand, running as an agent.</h2>
-            <ul class="jd"><li>Callable capabilities: <b>flight search, status, promotions, Miles&amp;Smiles, city guide.</b></li><li>Carrier-direct real-time inventory search and matched to your preferences.</li><li>Self-serve + measurable — claim, add, and live traveler-match / booking counters.</li></ul>
+            <div class="kicker"><span class="dot">●</span> TOOL CALLING · MCP / A2A</div>
+            <h2>The agent-access layer.</h2>
+            <ul class="jd"><li>A live <b>MCP tool server</b> — JSON-RPC <code>tools/list</code> / <code>tools/call</code>, bearer-gated, read-only.</li><li><b>A2A surfaces</b>: public discovery via <code>.well-known/agent-card.json</code>, JSON-RPC with SSE streaming.</li><li><b>Deny-by-default</b> skill activation — a capability is off until it is explicitly turned on.</li></ul>
           </div>
-          <div class="media"><img class="asset" src="../../assets/app-turkish-combot.png" alt="Turkish Airlines Brand Agent detail page: capabilities, Miles and Smiles connected, flight status, search, promotions, city guide, claim and add buttons, 8 traveler matches."><div class="asset-caption">TURKISH AIRLINES BRAND AGENT · CAPABILITIES + LIVE COUNTERS</div></div>
+          <div class="media"><div class="placeholder"><div class="ph-badge">PLACEHOLDER</div><div class="ph-note">Suggested image: the raw <b>tools/list JSON-RPC response</b> in a terminal, or <code>.well-known/agent-card.json</code> rendered in a browser. Show the protocol, not the product.</div></div></div>
         </div>
       </section>
 
       <section data-background-color="#141110">
-        <div class="split">
-          <div class="txt">
-            <div class="kicker"><span class="dot">●</span> BRAND AGENTS · LIVE INVENTORY</div>
-            <h2>Live fares, real traction.</h2>
-            <ul class="jd"><li>Alaska agent surfaces <b>recent fares, refreshed live</b> (SEA→SFO) — search + flight-status built in.</li><li><b>144 traveler matches · 2 bookings</b> — the marketplace is producing measurable demand.</li><li>Same model as any brand: claim, configure, add to your team.</li></ul>
-          </div>
-          <div class="media"><img class="asset" src="../../assets/app-alaska-combot.png" alt="Alaska Airlines Brand Agent: Flight Search capability, live recent fares SEA to SFO, find flights and flight status, claim and configure buttons, counters showing 144 traveler matches and 2 bookings."><div class="asset-caption">ALASKA BRAND AGENT · LIVE FARES + 144 MATCHES / 2 BOOKINGS</div></div>
-        </div>
+        <div class="kicker"><span class="dot">●</span> REUSABLE PRIMITIVES</div>
+        <h2>I built the primitives, not just the agent.</h2>
+        <ul class="jd jd-wide"><li><b>Approve / undo</b> — a one-use cryptographic grant, bounded transaction gates, and human-in-the-loop confirmation. An agent cannot complete a purchase unverified.</li><li><b>Context continuity</b> — an owner-scoped user domain compiled just-in-time into context, so the agent picks up where the traveler left off.</li><li><b>Explanations</b> — section-level evidence and a confidence band on every answer.</li><li>Each one is reusable on any surface where an agent acts for someone.</li></ul>
       </section>
 
       <section data-background-color="#141110">
@@ -154,35 +138,29 @@
       <section data-background-color="#141110">
         <div class="split">
           <div class="txt">
-            <div class="kicker"><span class="dot">●</span> RANKING &amp; PERSONALIZATION · PRODUCT-DEFINED</div>
-            <h2>Declared + inferred, kept honest.</h2>
-            <ul class="jd"><li><b>Inferred profile:</b> encrypted at rest, built from observed behavior (15 observations).</li><li><b>Suggest-only</b> — inferred ranks below anything the user declared.</li><li>Product-defined precedence turns signals into ranking; never a hard filter.</li></ul>
+            <div class="kicker"><span class="dot">●</span> GUARDRAILS · ENFORCED IN CODE</div>
+            <h2>Guardrails the CI enforces.</h2>
+            <ul class="jd"><li>A <b>pre-deploy hook blocks the ship</b> until a fresh evidence file exists. Not a checklist — a gate.</li><li>Determinism tests, coverage audits, PII never-export, rollback-first.</li><li><b>You cannot claim PASS without the evidence to back it.</b> I built that rule into the tooling because I needed it to apply to me.</li></ul>
           </div>
-          <div class="media"><img class="asset" src="../../assets/app-settings-5.png" alt="Settings Privacy: Declared Preferences, an encrypted Inferred Profile based on 15 observations, and a recent-activity log."><div class="asset-caption">PRIVACY · DECLARED + ENCRYPTED INFERRED PROFILE + ACTIVITY</div></div>
+          <div class="media"><div class="placeholder"><div class="ph-badge">PLACEHOLDER</div><div class="ph-note">Suggested image: the <b>PreToolUse hook refusing a deploy</b> (terminal output), or the CI gate showing the coverage audit passing. This is the trustworthy-AI slide — it should look like tooling, not a product.</div></div></div>
         </div>
       </section>
 
       <section data-background-color="#141110">
         <div class="split">
           <div class="txt">
-            <div class="kicker"><span class="dot">●</span> AUTONOMOUS, WHERE SAFE · WATCHERS</div>
-            <h2>Agents that work while you don't.</h2>
-            <ul class="jd"><li>Watch a route and a <b>price ceiling</b>; re-run on a schedule; alert on a match.</li><li>Proactive monitoring, not a one-shot search — SEA→PEK matched, alert sent.</li><li>Pause, stop, and per-route status the user controls.</li></ul>
+            <div class="kicker"><span class="dot">●</span> EVALUATION · FRONTIER MODELS</div>
+            <h2>I ran the test that killed my own thesis.</h2>
+            <ul class="jd"><li>Drove <b>Gemini and Perplexity</b> through 30 questions across two owner's manuals, twice each — <b>119 answers scored</b>, every citation logged.</li><li>My going-in thesis was that the citation slot was empty. <b>The data refuted it.</b> Gemini cites nothing by design; Perplexity cites ~98%, and those slots are already owned.</li><li>So I changed the plan, not the data. Measure first, then build.</li></ul>
           </div>
-          <div class="media"><img class="asset" src="../../assets/app-watchers.png" alt="Watchers: routes tracked with a max price, active status, best-so-far prices, match-found alert sent."><div class="asset-caption">WATCHERS · PRICE-CEILING TRACKING, ALERT ON MATCH</div></div>
+          <div class="media"><div class="placeholder"><div class="ph-badge">PLACEHOLDER</div><div class="ph-note">Suggested image: the <b>probe scoring sheet</b> or a simple chart of the two engines' citation rates. The point of the slide is the judgment, so a plain results table is fine.</div></div></div>
         </div>
-      </section>
-
-      <section data-background-color="#141110">
-        <div class="kicker"><span class="dot">●</span> MONETIZATION · TWO-SIDED REVENUE</div>
-        <h2>I've been paid on the supply side before.</h2>
-        <ul class="jd jd-wide"><li><b>$5M ESPN partnership</b>; scaled a two-sided content and ads marketplace across <b>500+ publishers</b>.</li><li>Owned a <b>US advertising P&amp;L</b> and a 17-person team.</li><li>The agent marketplace is the same shape: get supply on, then make the offer worth money without breaking the buyer's trust.</li></ul>
       </section>
 
       <section data-background-color="#141110">
         <div class="kicker"><span class="dot">●</span> POINT OF VIEW · GREG PROSL</div>
         <h2>The bet, and what's next.</h2>
-        <ul class="jd jd-wide"><li>My bet: agent-native commerce needs a <b>safe transaction layer</b> before a better search box — so I built the authorization boundary and human-in-the-loop first.</li><li>It's working: <b>880+ brand agents</b>, a live money-path, and measurable demand (144 matches, 2 bookings).</li><li>What I'd build next: the <b>monetization side</b> — turning a two-sided agent marketplace into merchant / offer revenue without breaking the experience.</li><li>Why it maps to your surface: I've shipped surface, ranking, and transaction at startup speed — I'd bring that to an AI-native shopping surface at scale.</li></ul>
+        <ul class="jd jd-wide"><li>My bet: the durable work in applied AI is the <b>primitives layer</b> — approve/undo, context continuity, explanations — not any one agent. So I built that layer first.</li><li>It works: a live agent that transacts, on retrieval I built, behind guardrails the CI enforces.</li><li><b>Where I'd grow:</b> I've made primitives reusable inside my own products. Getting many independent teams to adopt them is the muscle I want next — and it's this role's charter.</li><li>Why it maps to Core AI Experiences: you're hiring someone to prototype fast and then leave behind patterns other teams build on. That's the job I've been doing alone.</li></ul>
       </section>
 
       <section class="center" data-background-color="#141110">
