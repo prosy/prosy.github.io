@@ -90,9 +90,9 @@
           <div class="txt">
             <div class="kicker"><span class="dot">●</span> RETRIEVAL · DETERMINISTIC RAG</div>
             <h2>Retrieval I built, not bought.</h2>
-            <ul class="jd"><li>A deterministic, citation-based RAG service over a multimodal corpus — <b>FastAPI / Python</b>, BM25, live on Cloud Run.</li><li><b>The LLM interprets the question. It never writes the answer.</b> Every response traces to a source section.</li><li>Pages decomposed into atomic answer-units so a machine can actually comprehend them.</li></ul>
+            <ul class="jd"><li>A deterministic, citation-based RAG service over a multimodal corpus — <b>FastAPI / Python</b>, BM25, live on Cloud Run.</li><li><b>The LLM interprets the question. It never writes the answer.</b> Ask “how do I change the battery?” and you get <b>Section 6-28, pp. 460–462</b> — the manual's own words, not a paraphrase of them.</li><li>Every diagram carries its own page cite. Pages are decomposed into atomic answer-units so a machine can comprehend them.</li></ul>
           </div>
-          <div class="media"><div class="placeholder"><div class="ph-badge">PLACEHOLDER</div><div class="ph-note">Suggested image: the <b>D-RAG answer view</b> — a question, the returned answer, and the section-level citation/evidence trail beside it. Capture from the live Cloud Run service.</div></div></div>
+          <div class="media"><img class="asset" src="../../assets/drag-answer.png" alt="Deterministic RAG answer view: question 'How do I change the battery?' for a 2023 Mazda CX-30, returning Section 6-28 cited to pages 460-462 with a Low confidence badge, the manual's verbatim NOTE text, and an illustration captioned Section 6-28 Page 461."><div class="asset-caption">D-RAG · QUESTION → CITED SECTION → SOURCE TEXT + PAGE-LEVEL DIAGRAM CITES</div></div>
         </div>
       </section>
 
@@ -100,10 +100,10 @@
         <div class="split">
           <div class="txt">
             <div class="kicker"><span class="dot">●</span> PRIMITIVE · EXPLANATIONS</div>
-            <h2>Every answer carries its evidence.</h2>
-            <ul class="jd"><li>Section-level evidence attached to each answer, plus a <b>three-band confidence signal</b>.</li><li>Deterministic authority-join: one source of truth per section; byte-identical reruns.</li><li>An answer a user can check is an answer a user can trust.</li></ul>
+            <h2>It tells you when it isn't sure.</h2>
+            <ul class="jd"><li>Same engine, same manual, two questions. Cruise control comes back <b>High</b>. Battery replacement comes back <b>Low</b> — and says so.</li><li>A confidence band on every answer, next to the section and page it came from.</li><li><b>A system that only ever sounds confident is not explaining anything.</b> The band is the difference between an answer you can check and one you have to trust.</li></ul>
           </div>
-          <div class="media"><div class="placeholder"><div class="ph-badge">PLACEHOLDER</div><div class="ph-note">Suggested image: the <b>confidence band + evidence panel</b> from D-RAG (the 3-band display). Alternative: a side-by-side of the same query run twice, byte-identical.</div></div></div>
+          <div class="media"><img class="asset" src="../../assets/drag-confidence.png" alt="Two D-RAG queries stacked: 'How do I change the battery?' returns Section 6-28 pp. 460-462 with a Low confidence badge; 'How do I set the cruise control?' returns Section 4-208 pp. 354-356 with a High confidence badge."><div class="asset-caption">D-RAG · THE CONFIDENCE BAND DISCRIMINATES — LOW vs HIGH, SAME ENGINE</div></div>
         </div>
       </section>
 
