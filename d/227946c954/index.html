@@ -338,26 +338,10 @@
         </div>
       </section>
 
-      <section data-background-color="#141110">
-        <div class="split">
-          <div class="txt">
-            <div class="kicker"><span class="dot">●</span> PRIMITIVE · EXPLANATIONS</div>
-            <h2>It tells you when it isn't sure.</h2>
-            <ul class="jd"><li>Same engine, same manual, two questions. Cruise control comes back <b>High</b>. Battery replacement comes back <b>Low</b> — and says so.</li><li>A confidence band on every answer, next to the section and page it came from.</li><li><b>A system that only ever sounds confident is not explaining anything.</b> The band is the difference between an answer you can check and one you have to trust.</li></ul>
-          </div>
-          <div class="media"><img class="asset" src="../../assets/drag-confidence.png" alt="Two D-RAG queries stacked: 'How do I change the battery?' returns Section 6-28 pp. 460-462 with a Low confidence badge; 'How do I set the cruise control?' returns Section 4-208 pp. 354-356 with a High confidence badge."><div class="asset-caption">D-RAG · THE CONFIDENCE BAND DISCRIMINATES — LOW vs HIGH, SAME ENGINE</div></div>
-        </div>
+      <section data-background-color="#f2efe9" data-background-image="/assets/slide-confidence-gates.png" data-background-size="contain" data-background-repeat="no-repeat" aria-label="What the model is allowed to act on: a natural-language phrase resolves to a confidence score that decides which actions the system may take. Two thresholds, three bands — at or above 0.86 a term may drive a deterministic provider filter; between 0.70 and 0.86 it may only explain itself, ask a clarifying question, or propose a preference; below 0.70 it is logged and may not touch what the user sees. Fail-closed on ambiguity. LLM cost bounded to at most one call per extracted phrase. Shipped behind a default-off flag, thresholds ratified in decision record DD-102.">
       </section>
 
-      <section data-background-color="#141110">
-        <div class="split">
-          <div class="txt">
-            <div class="kicker"><span class="dot">●</span> TOOL CALLING · MCP / A2A</div>
-            <h2>The agent-access layer.</h2>
-            <ul class="jd"><li>A live <b>MCP tool server</b> — JSON-RPC <code>tools/list</code> / <code>tools/call</code>, bearer-gated, read-only.</li><li><b>A2A surfaces</b>: public discovery via <code>.well-known/agent-card.json</code>, JSON-RPC with SSE streaming.</li><li><b>Deny-by-default</b> skill activation — a capability is off until it is explicitly turned on.</li></ul>
-          </div>
-          <div class="media"><div class="placeholder"><div class="ph-badge">PLACEHOLDER</div><div class="ph-note">Suggested image: the raw <b>tools/list JSON-RPC response</b> in a terminal, or <code>.well-known/agent-card.json</code> rendered in a browser. Show the protocol, not the product.</div></div></div>
-        </div>
+      <section data-background-color="#f2efe9" data-background-image="/assets/slide-mcp-gateway.png" data-background-size="contain" data-background-repeat="no-repeat" aria-label="Both sides of the agent protocol: travel.aw is an MCP client of an airline's own server and an MCP server to third-party agents. Ships an MCP server exposing 9 read-only tools over JSON-RPC, bearer-authenticated, rate-limited, deny-by-default. Consumes Turkish Airlines' 14-tool MCP server over OAuth 2.1 plus PKCE. Write tools are withheld on purpose. Live terminal output shows an unauthorized tools/list call returning 401 and a public agent-card.json returning 200.">
       </section>
 
       <section data-background-color="#141110">
@@ -366,15 +350,7 @@
         <ul class="jd jd-wide"><li><b>Approve / undo</b> — a one-use cryptographic grant, bounded transaction gates, and human-in-the-loop confirmation. An agent cannot complete a purchase unverified.</li><li><b>Context continuity</b> — an owner-scoped user domain compiled just-in-time into context, so the agent picks up where the traveler left off.</li><li><b>Explanations</b> — section-level evidence and a confidence band on every answer.</li><li>Each one is reusable on any surface where an agent acts for someone.</li></ul>
       </section>
 
-      <section data-background-color="#141110">
-        <div class="split">
-          <div class="txt">
-            <div class="kicker"><span class="dot">●</span> GUARDRAILS · ENFORCED IN CODE</div>
-            <h2>Guardrails the CI enforces.</h2>
-            <ul class="jd"><li>A <b>pre-deploy hook blocks the ship</b> until a fresh evidence file exists. Not a checklist — a gate.</li><li>Determinism tests, coverage audits, PII never-export, rollback-first.</li><li><b>You cannot claim PASS without the evidence to back it.</b> I built that rule into the tooling because I needed it to apply to me.</li></ul>
-          </div>
-          <div class="media"><div class="placeholder"><div class="ph-badge">PLACEHOLDER</div><div class="ph-note">Suggested image: the <b>PreToolUse hook refusing a deploy</b> (terminal output), or the CI gate showing the coverage audit passing. This is the trustworthy-AI slide — it should look like tooling, not a product.</div></div></div>
-        </div>
+      <section data-background-color="#f2efe9" data-background-image="/assets/slide-guardrails-refusal.png" data-background-size="contain" data-background-repeat="no-repeat" aria-label="Build the gate, watch it fire, know when to remove it. A pre-write hook blocked the coding agent from authoring its own governance and refused 18 real write attempts, each appended to a tamper-evident ledger. Then it was removed: the gate caught process violations, not defects. Enforcement moved from the keystroke to the blast radius. What runs today refuses at the point of damage — no test suite may execute against the production database, with no override. Beneath it, a deterministic eval floor of 103 tests over a 32-case corpus scored against 17 named failure codes. Hook retired in commit d723973.">
       </section>
 
       <section data-background-color="#141110">
