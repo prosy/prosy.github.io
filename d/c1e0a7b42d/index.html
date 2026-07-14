@@ -7,56 +7,48 @@
   <meta name="robots" content="noindex, nofollow">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
   <style>
-    /* Palette sampled directly from Greg's authored slides (travel_deck_slides/2-mcp-gateway.png).
-       His design is the standard; the deck was re-themed to match it, not the reverse. */
-    :root{ --bg:#f5f0e8; --panel:#211c18; --ink:#2c2520; --body:#5c534a; --muted:#8a8078;
-      --amber:#d4892a; --line:#ddd5c9;
+    :root{ --bg:#141110; --panel:#1e1a17; --ink:#ece7e0; --muted:#9a9088;
+      --amber:#e08a3c; --cyan:#6bb6c7; --line:#312a25;
       --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
       --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
-    .reveal{ font-family:var(--sans); color:var(--body); font-size:32px; }
+    .reveal{ font-family:var(--sans); color:var(--ink); font-size:32px; }
     .reveal-viewport{ background:var(--bg); }
-    .reveal h1,.reveal h2,.reveal h3{ color:var(--ink); font-weight:700; letter-spacing:-.025em; text-transform:none; line-height:1.04; }
+    .reveal h1,.reveal h2,.reveal h3{ color:var(--ink); font-weight:700; letter-spacing:-.02em; text-transform:none; line-height:1.06; }
     .reveal h1{ font-size:2.1em; }
-    .reveal h2{ font-size:1.30em; }
-    .hdr h2{ padding-bottom:.3em; border-bottom:1px solid var(--line); }
+    .reveal h2{ font-size:1.32em; }
     .reveal a{ color:var(--amber); }
-    .reveal strong{ color:var(--ink); }
-    /* mono kicker, letterspaced, muted — as on his slides */
-    .kicker{ font-family:var(--mono); font-size:.44em; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin-bottom:.75em; }
+    .reveal strong{ color:#fff; }
+    .kicker{ font-family:var(--mono); font-size:.46em; letter-spacing:.16em; text-transform:uppercase; color:var(--amber); margin-bottom:.7em; }
     .kicker .dot{ color:var(--amber); }
     .sub{ color:var(--muted); font-size:.72em; line-height:1.4; max-width:20em; }
-    /* header band: kicker + full-width headline + hairline rule (Greg's layout) */
-    .hdr{ width:100%; margin-bottom:.85em; }
-    .hdr h2{ margin:0; max-width:none; }
-    .split{ display:flex; gap:1.8em; align-items:flex-start; width:100%; }
-    .split .txt{ flex:0 0 45%; }
+    .split{ display:flex; gap:1.5em; align-items:center; width:100%; }
+    .split .txt{ flex:0 0 37%; }
     .split .media{ flex:1; min-width:0; display:flex; flex-direction:column; align-items:center; }
-    .asset{ max-height:540px; max-width:100%; width:auto; border:1px solid var(--line); border-radius:12px; box-shadow:0 8px 28px rgba(44,37,32,.13); background:#fff; }
+    .asset{ max-height:600px; max-width:100%; width:auto; border:1px solid var(--line); border-radius:14px; box-shadow:0 12px 40px rgba(0,0,0,.5); }
     .asset-caption{ font-family:var(--mono); font-size:.4em; letter-spacing:.06em; color:var(--muted); margin-top:.8em; text-align:center; }
     .media.duo{ gap:1.2em; }
     .media.duo figure{ margin:0; display:flex; flex-direction:column; align-items:center; }
     .media.duo .asset{ max-height:248px; }
-    .jd{ list-style:none; margin:0; padding:0; }
-    .jd li{ position:relative; padding-left:1.25em; margin:.72em 0; font-size:.66em; color:var(--body); line-height:1.45; }
-    .jd li::before{ content:""; position:absolute; left:0; top:.5em; width:.38em; height:.38em; background:var(--amber); }
-    .jd li b{ color:var(--ink); font-weight:600; }
+    .jd{ list-style:none; margin:.6em 0 0; padding:0; }
+    .jd li{ position:relative; padding-left:1.15em; margin:.6em 0; font-size:.66em; color:var(--ink); line-height:1.4; }
+    .jd li::before{ content:"\2192"; position:absolute; left:0; color:var(--amber); }
+    .jd li b{ color:#fff; }
     .jd-wide{ max-width:26em; } .jd-wide li{ font-size:.72em; }
     .placeholder{ width:100%; min-height:540px; border:2px dashed var(--line); border-radius:14px;
       display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1.1em; padding:2.4em; text-align:center;
-      background:repeating-linear-gradient(45deg,#efe9df,#efe9df 12px,#f5f0e8 12px,#f5f0e8 24px); }
+      background:repeating-linear-gradient(45deg,#181512,#181512 12px,#1c1815 12px,#1c1815 24px); }
     .placeholder .ph-badge{ font-family:var(--mono); font-size:.42em; letter-spacing:.2em; color:var(--amber); border:1px solid var(--amber); border-radius:20px; padding:.35em 1.1em; }
     .placeholder .ph-note{ font-size:.58em; color:var(--muted); max-width:20em; line-height:1.5; }
     .placeholder .ph-note b{ color:var(--ink); }
-    .placeholder{ border-color:var(--line) !important; }
     .reveal .slides section{ text-align:left; }
     .reveal .slides section.center{ text-align:center; }
     .reveal .progress{ color:var(--amber); }
     .reveal .controls{ color:var(--amber); }
     /* click-to-zoom lightbox: images open at native resolution (scrollable) for readability */
     .asset{ cursor:zoom-in; }
-    #lightbox{ position:fixed; inset:0; z-index:1000; display:none; overflow:auto; background:rgba(44,37,32,.93); cursor:zoom-out; }
+    #lightbox{ position:fixed; inset:0; z-index:1000; display:none; overflow:auto; background:rgba(10,8,7,.94); cursor:zoom-out; }
     #lightbox.open{ display:block; }
-    #lightbox img{ display:block; margin:2vmin auto 9vh; max-width:96vw; width:auto; height:auto; border-radius:8px; box-shadow:0 20px 80px rgba(0,0,0,.35); }
+    #lightbox img{ display:block; margin:2vmin auto 9vh; max-width:96vw; width:auto; height:auto; border-radius:8px; box-shadow:0 20px 80px rgba(0,0,0,.65); }
     #lightbox .lb-hint{ position:fixed; bottom:2.2vh; left:0; right:0; text-align:center; font-family:var(--mono); font-size:12px; letter-spacing:.1em; color:var(--muted); pointer-events:none; }
   </style>
 </head>
@@ -64,7 +56,7 @@
   <div class="reveal">
     <div class="slides">
 
-      <section data-background-color="#f5f0e8">
+      <section data-background-color="#141110">
         <div class="split">
           <div class="txt">
             <div class="kicker"><span class="dot">●</span> BUILD PORTFOLIO · GREG PROSL</div>
@@ -82,112 +74,112 @@
         </div>
       </section>
 
-      <section data-background-color="#f5f0e8">
-        <div class="hdr">
-          <div class="kicker"><span class="dot">●</span> THE PROJECT · TRAVEL.AUGWORLDS.AI</div>
-          <h2>An AI-native shopping surface.</h2>
-        </div>
+      <section data-background-color="#141110">
         <div class="split">
-          <div class="txt"><ul class="jd"><li><b>Conversational home</b> — “Where to next?” in plain language.</li><li><b>One prompt to imagine, find, plan, book, track, and experience travel.</b></li><li>The surface a customer reaches from an AI channel — “your agent talking to theirs.”</li><li>Voice or text - same surface, same result.</li></ul></div>
+          <div class="txt">
+            <div class="kicker"><span class="dot">●</span> THE PROJECT · TRAVEL.AUGWORLDS.AI</div>
+            <h2>An AI-native shopping surface.</h2>
+            <ul class="jd"><li><b>Conversational home</b> — “Where to next?” in plain language.</li><li><b>One prompt to imagine, find, plan, book, track, and experience travel.</b></li><li>The surface a customer reaches from an AI channel — “your agent talking to theirs.”</li><li>Voice or text - same surface, same result.</li></ul>
+          </div>
           <div class="media"><img class="asset" src="../../assets/app-agent-1.png" alt="Conversational home: Welcome back Greg, Where to next, with quick actions."><div class="asset-caption">HOME · CONVERSATIONAL ENTRY (VOICE + TEXT)</div></div>
         </div>
       </section>
 
-      <section data-background-color="#f5f0e8">
-        <div class="hdr">
-          <div class="kicker"><span class="dot">●</span> SHOP → BOOK · FLIGHTS</div>
-          <h2>The agent, working.</h2>
-        </div>
+      <section data-background-color="#141110">
         <div class="split">
-          <div class="txt"><ul class="jd"><li>Natural-language query → <b>“Found 66 itineraries, from $78.”</b></li><li><b>Best vs Cheapest</b> ranked results — each with fares, cabin, and one-tap actions.</li><li>Learns in the flow — <b>“save SEA as your home airport?”</b> captured as a declared preference.</li></ul></div>
+          <div class="txt">
+            <div class="kicker"><span class="dot">●</span> SHOP → BOOK · FLIGHTS</div>
+            <h2>The agent, working.</h2>
+            <ul class="jd"><li>Natural-language query → <b>“Found 66 itineraries, from $78.”</b></li><li><b>Best vs Cheapest</b> ranked results — each with fares, cabin, and one-tap actions.</li><li>Learns in the flow — <b>“save SEA as your home airport?”</b> captured as a declared preference.</li></ul>
+          </div>
           <div class="media"><img class="asset" src="../../assets/app-agent-convo-1.png" alt="Conversational flight search: user asks SFO to SEA Sept 21, agent returns 66 itineraries ranked Best or Cheapest, with a prompt to save SEA as home airport."><div class="asset-caption">FLIGHT SEARCH · RANKED RESULTS + IN-FLOW LEARNING</div></div>
         </div>
       </section>
 
-      <section data-background-color="#f5f0e8">
-        <div class="hdr">
-          <div class="kicker"><span class="dot">●</span> RANKING · DETERMINISTIC BY DESIGN</div>
-          <h2>Ranking you can explain, line by line.</h2>
-        </div>
+      <section data-background-color="#141110">
         <div class="split">
-          <div class="txt"><ul class="jd"><li>Baseline: earliest departure, price as tiebreak. Then a <b>bounded single-carrier promotion</b> — only within +10% price and +20% duration, matching stops, cabin, and currency.</li><li><b>Loyalty, team membership, and marketplace tier are annotation only.</b> They change what the card says. They do not change where it sits.</li><li><b>Never a learned ranker.</b> Every position is a rule I can point at in the code and defend.</li></ul></div>
+          <div class="txt">
+            <div class="kicker"><span class="dot">●</span> RANKING · DETERMINISTIC BY DESIGN</div>
+            <h2>Ranking you can explain, line by line.</h2>
+            <ul class="jd"><li>Baseline: earliest departure, price as tiebreak. Then a <b>bounded single-carrier promotion</b> — only within +10% price and +20% duration, matching stops, cabin, and currency.</li><li><b>Loyalty, team membership, and marketplace tier are annotation only.</b> They change what the card says. They do not change where it sits.</li><li><b>Never a learned ranker.</b> Every position is a rule I can point at in the code and defend.</li></ul>
+          </div>
           <div class="media"><div class="placeholder"><div class="ph-badge">PLACEHOLDER</div><div class="ph-note">Suggested image: the <b>comparator chain in code</b> (posture/flight-ranking.ts) beside the ranked result list it produces — the rule and its output, side by side.</div></div></div>
         </div>
       </section>
 
-      <section data-background-color="#f5f0e8">
-        <div class="hdr">
-          <div class="kicker"><span class="dot">●</span> THE MARKETPLACE · AGENTIC COMMERCE</div>
-          <h2>A two-sided agent marketplace.</h2>
-        </div>
+      <section data-background-color="#141110">
         <div class="split">
-          <div class="txt"><ul class="jd"><li><b>Supply:</b> 880+ travel brands, each run as an agent; self-serve “Claim this agent.”</li><li><b>Demand:</b> your team of agents plans, books, and saves for you.</li><li><b>Curation-first ranking</b> — trusted-partner promotion, US-first tiers.</li></ul></div>
+          <div class="txt">
+            <div class="kicker"><span class="dot">●</span> THE MARKETPLACE · AGENTIC COMMERCE</div>
+            <h2>A two-sided agent marketplace.</h2>
+            <ul class="jd"><li><b>Supply:</b> 880+ travel brands, each run as an agent; self-serve “Claim this agent.”</li><li><b>Demand:</b> your team of agents plans, books, and saves for you.</li><li><b>Curation-first ranking</b> — trusted-partner promotion, US-first tiers.</li></ul>
+          </div>
           <div class="media"><img class="asset" src="../../assets/app-marketplace.png" alt="Agent marketplace card grid with Add to My Team, On My Team, and Claim this agent."><div class="asset-caption">BRAND AGENTS · SELF-SERVE CLAIM + ADD TO TEAM</div></div>
         </div>
       </section>
 
-      <section data-background-color="#f5f0e8">
-        <div class="hdr">
-          <div class="kicker"><span class="dot">●</span> FIRST LIVE BRAND AGENT · TURKISH AIRLINES</div>
-          <h2>An airline's MCP server, rendered as a card.</h2>
-        </div>
+      <section data-background-color="#141110">
         <div class="split">
-          <div class="txt"><ul class="jd"><li>This card <b>is</b> Turkish Airlines' own <b>MCP server</b> — we consume their <b>14 tools</b> as a client over OAuth 2.1 + PKCE, and render the callable surface.</li><li>The capabilities are <b>their real tools</b>: flight search, status, promotions, Miles&amp;Smiles, city guide. Carrier-direct inventory, matched to your preferences.</li><li><b>The first live supplier-direct agent interconnect on the platform.</b> Self-serve and measurable — claim, add, live traveler-match and booking counters.</li></ul></div>
+          <div class="txt">
+            <div class="kicker"><span class="dot">●</span> FIRST LIVE BRAND AGENT · TURKISH AIRLINES</div>
+            <h2>An airline's MCP server, rendered as a card.</h2>
+            <ul class="jd"><li>This card <b>is</b> Turkish Airlines' own <b>MCP server</b> — we consume their <b>14 tools</b> as a client over OAuth 2.1 + PKCE, and render the callable surface.</li><li>The capabilities are <b>their real tools</b>: flight search, status, promotions, Miles&amp;Smiles, city guide. Carrier-direct inventory, matched to your preferences.</li><li><b>The first live supplier-direct agent interconnect on the platform.</b> Self-serve and measurable — claim, add, live traveler-match and booking counters.</li></ul>
+          </div>
           <div class="media"><img class="asset" src="../../assets/app-turkish-combot.png" alt="Turkish Airlines Brand Agent detail page — the display card for Turkish's own MCP server: callable capabilities (flight search, status, promotions, Miles and Smiles, city guide), claim and add buttons, 8 traveler matches."><div class="asset-caption">TURKISH AIRLINES · THEIR MCP SERVER, RENDERED AS A BRAND AGENT</div></div>
         </div>
       </section>
 
-      <section data-background-color="#f5f0e8">
-        <div class="hdr">
-          <div class="kicker"><span class="dot">●</span> BRAND AGENTS · LIVE INVENTORY</div>
-          <h2>Live fares, real traction.</h2>
-        </div>
+      <section data-background-color="#141110">
         <div class="split">
-          <div class="txt"><ul class="jd"><li>Alaska agent surfaces <b>recent fares, refreshed live</b> (SEA→SFO) — search + flight-status built in.</li><li><b>144 traveler matches · 2 bookings</b> — the marketplace is producing measurable demand.</li><li>Same model as any brand: claim, configure, add to your team.</li></ul></div>
+          <div class="txt">
+            <div class="kicker"><span class="dot">●</span> BRAND AGENTS · LIVE INVENTORY</div>
+            <h2>Live fares, real traction.</h2>
+            <ul class="jd"><li>Alaska agent surfaces <b>recent fares, refreshed live</b> (SEA→SFO) — search + flight-status built in.</li><li><b>144 traveler matches · 2 bookings</b> — the marketplace is producing measurable demand.</li><li>Same model as any brand: claim, configure, add to your team.</li></ul>
+          </div>
           <div class="media"><img class="asset" src="../../assets/app-alaska-combot.png" alt="Alaska Airlines Brand Agent: Flight Search capability, live recent fares SEA to SFO, find flights and flight status, claim and configure buttons, counters showing 144 traveler matches and 2 bookings."><div class="asset-caption">ALASKA BRAND AGENT · LIVE FARES + 144 MATCHES / 2 BOOKINGS</div></div>
         </div>
       </section>
 
-      <section data-background-color="#f5f0e8">
-        <div class="hdr">
-          <div class="kicker"><span class="dot">●</span> TRANSACTION SPINE · AGENTS TRANSACT</div>
-          <h2>Safe agent checkout.</h2>
-        </div>
+      <section data-background-color="#141110">
         <div class="split">
-          <div class="txt"><ul class="jd"><li>The money-path end: confirm the flight, <b>book it</b> — Alaska SFO→SEA, confirmed total $118.40.</li><li><b>Human-in-the-loop</b>: review price → confirm → book; an agent can't purchase unverified.</li><li>Data-minimized — “used only for this booking, not stored beyond it.”</li></ul></div>
+          <div class="txt">
+            <div class="kicker"><span class="dot">●</span> TRANSACTION SPINE · AGENTS TRANSACT</div>
+            <h2>Safe agent checkout.</h2>
+            <ul class="jd"><li>The money-path end: confirm the flight, <b>book it</b> — Alaska SFO→SEA, confirmed total $118.40.</li><li><b>Human-in-the-loop</b>: review price → confirm → book; an agent can't purchase unverified.</li><li>Data-minimized — “used only for this booking, not stored beyond it.”</li></ul>
+          </div>
           <div class="media"><img class="asset" src="../../assets/app-confirm-2.png" alt="Confirm Your Flight: Alaska SFO to SEA nonstop $118, passenger details, confirmed total 118.40 USD, Book This Flight button, data-minimization note."><div class="asset-caption">CONFIRM YOUR FLIGHT · REVIEW → BOOK</div></div>
         </div>
       </section>
 
-      <section data-background-color="#f5f0e8">
-        <div class="hdr">
-          <div class="kicker"><span class="dot">●</span> RANKING &amp; PERSONALIZATION · PRODUCT-DEFINED</div>
-          <h2>Declared + inferred, kept honest.</h2>
-        </div>
+      <section data-background-color="#141110">
         <div class="split">
-          <div class="txt"><ul class="jd"><li><b>Inferred profile:</b> encrypted at rest, built from observed behavior (15 observations).</li><li><b>Suggest-only</b> — inferred ranks below anything the user declared.</li><li>Product-defined precedence turns signals into ranking; never a hard filter.</li></ul></div>
+          <div class="txt">
+            <div class="kicker"><span class="dot">●</span> RANKING &amp; PERSONALIZATION · PRODUCT-DEFINED</div>
+            <h2>Declared + inferred, kept honest.</h2>
+            <ul class="jd"><li><b>Inferred profile:</b> encrypted at rest, built from observed behavior (15 observations).</li><li><b>Suggest-only</b> — inferred ranks below anything the user declared.</li><li>Product-defined precedence turns signals into ranking; never a hard filter.</li></ul>
+          </div>
           <div class="media"><img class="asset" src="../../assets/app-settings-5.png" alt="Settings Privacy: Declared Preferences, an encrypted Inferred Profile based on 15 observations, and a recent-activity log."><div class="asset-caption">PRIVACY · DECLARED + ENCRYPTED INFERRED PROFILE + ACTIVITY</div></div>
         </div>
       </section>
 
-      <section data-background-color="#f5f0e8">
-        <div class="hdr">
-          <div class="kicker"><span class="dot">●</span> AUTONOMOUS, WHERE SAFE · WATCHERS</div>
-          <h2>Agents that work while you don't.</h2>
-        </div>
+      <section data-background-color="#141110">
         <div class="split">
-          <div class="txt"><ul class="jd"><li>Watch a route and a <b>price ceiling</b>; re-run on a schedule; alert on a match.</li><li>Proactive monitoring, not a one-shot search — SEA→PEK matched, alert sent.</li><li>Pause, stop, and per-route status the user controls.</li></ul></div>
+          <div class="txt">
+            <div class="kicker"><span class="dot">●</span> AUTONOMOUS, WHERE SAFE · WATCHERS</div>
+            <h2>Agents that work while you don't.</h2>
+            <ul class="jd"><li>Watch a route and a <b>price ceiling</b>; re-run on a schedule; alert on a match.</li><li>Proactive monitoring, not a one-shot search — SEA→PEK matched, alert sent.</li><li>Pause, stop, and per-route status the user controls.</li></ul>
+          </div>
           <div class="media"><img class="asset" src="../../assets/app-watchers.png" alt="Watchers: routes tracked with a max price, active status, best-so-far prices, match-found alert sent."><div class="asset-caption">WATCHERS · PRICE-CEILING TRACKING, ALERT ON MATCH</div></div>
         </div>
       </section>
 
-      <section data-background-color="#f5f0e8">
+      <section data-background-color="#141110">
         <div class="kicker"><span class="dot">●</span> POINT OF VIEW · GREG PROSL</div>
         <h2>The bet, and what's next.</h2>
         <ul class="jd jd-wide"><li>My bet: agent-native commerce needs a <b>safe transaction layer</b> before a better search box — so I built the authorization boundary and human-in-the-loop first.</li><li>It's working: <b>880+ brand agents</b>, a live money-path, and measurable demand (144 matches, 2 bookings).</li><li>What I'd build next: the <b>monetization side</b> — turning a two-sided agent marketplace into merchant / offer revenue without breaking the experience.</li><li>Why it maps to your surface: I've shipped surface, ranking, and transaction at startup speed — I'd bring that to an AI-native shopping surface at scale.</li></ul>
       </section>
 
-      <section class="center" data-background-color="#f5f0e8">
+      <section class="center" data-background-color="#141110">
         <div class="kicker"><span class="dot">●</span> GREG PROSL</div>
         <h2>Let's build.</h2>
         <p class="sub" style="margin:.8em auto 0;">gprosl@gmail.com · Seattle, WA · <a href="https://travel.augworlds.ai">travel.augworlds.ai</a></p>

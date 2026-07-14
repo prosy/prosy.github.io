@@ -7,56 +7,48 @@
   <meta name="robots" content="noindex, nofollow">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
   <style>
-    /* Palette sampled directly from Greg's authored slides (travel_deck_slides/2-mcp-gateway.png).
-       His design is the standard; the deck was re-themed to match it, not the reverse. */
-    :root{ --bg:#f5f0e8; --panel:#211c18; --ink:#2c2520; --body:#5c534a; --muted:#8a8078;
-      --amber:#d4892a; --line:#ddd5c9;
+    :root{ --bg:#141110; --panel:#1e1a17; --ink:#ece7e0; --muted:#9a9088;
+      --amber:#e08a3c; --cyan:#6bb6c7; --line:#312a25;
       --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
       --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
-    .reveal{ font-family:var(--sans); color:var(--body); font-size:32px; }
+    .reveal{ font-family:var(--sans); color:var(--ink); font-size:32px; }
     .reveal-viewport{ background:var(--bg); }
-    .reveal h1,.reveal h2,.reveal h3{ color:var(--ink); font-weight:700; letter-spacing:-.025em; text-transform:none; line-height:1.04; }
+    .reveal h1,.reveal h2,.reveal h3{ color:var(--ink); font-weight:700; letter-spacing:-.02em; text-transform:none; line-height:1.06; }
     .reveal h1{ font-size:2.1em; }
-    .reveal h2{ font-size:1.30em; }
-    .hdr h2{ padding-bottom:.3em; border-bottom:1px solid var(--line); }
+    .reveal h2{ font-size:1.32em; }
     .reveal a{ color:var(--amber); }
-    .reveal strong{ color:var(--ink); }
-    /* mono kicker, letterspaced, muted — as on his slides */
-    .kicker{ font-family:var(--mono); font-size:.44em; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin-bottom:.75em; }
+    .reveal strong{ color:#fff; }
+    .kicker{ font-family:var(--mono); font-size:.46em; letter-spacing:.16em; text-transform:uppercase; color:var(--amber); margin-bottom:.7em; }
     .kicker .dot{ color:var(--amber); }
     .sub{ color:var(--muted); font-size:.72em; line-height:1.4; max-width:20em; }
-    /* header band: kicker + full-width headline + hairline rule (Greg's layout) */
-    .hdr{ width:100%; margin-bottom:.85em; }
-    .hdr h2{ margin:0; max-width:none; }
-    .split{ display:flex; gap:1.8em; align-items:flex-start; width:100%; }
-    .split .txt{ flex:0 0 45%; }
+    .split{ display:flex; gap:1.5em; align-items:center; width:100%; }
+    .split .txt{ flex:0 0 37%; }
     .split .media{ flex:1; min-width:0; display:flex; flex-direction:column; align-items:center; }
-    .asset{ max-height:540px; max-width:100%; width:auto; border:1px solid var(--line); border-radius:12px; box-shadow:0 8px 28px rgba(44,37,32,.13); background:#fff; }
+    .asset{ max-height:600px; max-width:100%; width:auto; border:1px solid var(--line); border-radius:14px; box-shadow:0 12px 40px rgba(0,0,0,.5); }
     .asset-caption{ font-family:var(--mono); font-size:.4em; letter-spacing:.06em; color:var(--muted); margin-top:.8em; text-align:center; }
     .media.duo{ gap:1.2em; }
     .media.duo figure{ margin:0; display:flex; flex-direction:column; align-items:center; }
     .media.duo .asset{ max-height:248px; }
-    .jd{ list-style:none; margin:0; padding:0; }
-    .jd li{ position:relative; padding-left:1.25em; margin:.72em 0; font-size:.66em; color:var(--body); line-height:1.45; }
-    .jd li::before{ content:""; position:absolute; left:0; top:.5em; width:.38em; height:.38em; background:var(--amber); }
-    .jd li b{ color:var(--ink); font-weight:600; }
+    .jd{ list-style:none; margin:.6em 0 0; padding:0; }
+    .jd li{ position:relative; padding-left:1.15em; margin:.6em 0; font-size:.66em; color:var(--ink); line-height:1.4; }
+    .jd li::before{ content:"\2192"; position:absolute; left:0; color:var(--amber); }
+    .jd li b{ color:#fff; }
     .jd-wide{ max-width:26em; } .jd-wide li{ font-size:.72em; }
     .placeholder{ width:100%; min-height:540px; border:2px dashed var(--line); border-radius:14px;
       display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1.1em; padding:2.4em; text-align:center;
-      background:repeating-linear-gradient(45deg,#efe9df,#efe9df 12px,#f5f0e8 12px,#f5f0e8 24px); }
+      background:repeating-linear-gradient(45deg,#181512,#181512 12px,#1c1815 12px,#1c1815 24px); }
     .placeholder .ph-badge{ font-family:var(--mono); font-size:.42em; letter-spacing:.2em; color:var(--amber); border:1px solid var(--amber); border-radius:20px; padding:.35em 1.1em; }
     .placeholder .ph-note{ font-size:.58em; color:var(--muted); max-width:20em; line-height:1.5; }
     .placeholder .ph-note b{ color:var(--ink); }
-    .placeholder{ border-color:var(--line) !important; }
     .reveal .slides section{ text-align:left; }
     .reveal .slides section.center{ text-align:center; }
     .reveal .progress{ color:var(--amber); }
     .reveal .controls{ color:var(--amber); }
     /* click-to-zoom lightbox: images open at native resolution (scrollable) for readability */
     .asset{ cursor:zoom-in; }
-    #lightbox{ position:fixed; inset:0; z-index:1000; display:none; overflow:auto; background:rgba(44,37,32,.93); cursor:zoom-out; }
+    #lightbox{ position:fixed; inset:0; z-index:1000; display:none; overflow:auto; background:rgba(10,8,7,.94); cursor:zoom-out; }
     #lightbox.open{ display:block; }
-    #lightbox img{ display:block; margin:2vmin auto 9vh; max-width:96vw; width:auto; height:auto; border-radius:8px; box-shadow:0 20px 80px rgba(0,0,0,.35); }
+    #lightbox img{ display:block; margin:2vmin auto 9vh; max-width:96vw; width:auto; height:auto; border-radius:8px; box-shadow:0 20px 80px rgba(0,0,0,.65); }
     #lightbox .lb-hint{ position:fixed; bottom:2.2vh; left:0; right:0; text-align:center; font-family:var(--mono); font-size:12px; letter-spacing:.1em; color:var(--muted); pointer-events:none; }
   </style>
 </head>
@@ -64,7 +56,7 @@
   <div class="reveal">
     <div class="slides">
 
-      <section data-background-color="#f5f0e8">
+      <section data-background-color="#141110">
         <div class="split">
           <div class="txt">
             <div class="kicker"><span class="dot">●</span> BUILD PORTFOLIO · GREG PROSL</div>
@@ -82,24 +74,24 @@
         </div>
       </section>
 
-      <section data-background-color="#f5f0e8">
-        <div class="hdr">
-          <div class="kicker"><span class="dot">●</span> SHOP → BOOK · FLIGHTS</div>
-          <h2>The agent, working.</h2>
-        </div>
+      <section data-background-color="#141110">
         <div class="split">
-          <div class="txt"><ul class="jd"><li>Natural-language query → <b>“Found 66 itineraries, from $78.”</b></li><li><b>Best vs Cheapest</b> ranked results — each with fares, cabin, and one-tap actions.</li><li>Learns in the flow — <b>“save SEA as your home airport?”</b> captured as a declared preference.</li></ul></div>
+          <div class="txt">
+            <div class="kicker"><span class="dot">●</span> SHOP → BOOK · FLIGHTS</div>
+            <h2>The agent, working.</h2>
+            <ul class="jd"><li>Natural-language query → <b>“Found 66 itineraries, from $78.”</b></li><li><b>Best vs Cheapest</b> ranked results — each with fares, cabin, and one-tap actions.</li><li>Learns in the flow — <b>“save SEA as your home airport?”</b> captured as a declared preference.</li></ul>
+          </div>
           <div class="media"><img class="asset" src="../../assets/app-agent-convo-1.png" alt="Conversational flight search: user asks SFO to SEA Sept 21, agent returns 66 itineraries ranked Best or Cheapest, with a prompt to save SEA as home airport."><div class="asset-caption">FLIGHT SEARCH · RANKED RESULTS + IN-FLOW LEARNING</div></div>
         </div>
       </section>
 
-      <section data-background-color="#f5f0e8">
-        <div class="hdr">
-          <div class="kicker"><span class="dot">●</span> RETRIEVAL · DETERMINISTIC RAG</div>
-          <h2>The manual answers, not the model.</h2>
-        </div>
+      <section data-background-color="#141110">
         <div class="split">
-          <div class="txt"><ul class="jd"><li>A deterministic, citation-based RAG service over a multimodal corpus — <b>FastAPI / Python</b>, BM25, live on Cloud Run.</li><li><b>The LLM interprets the question. It never writes the answer.</b> Ask “how do I change the battery?” and you get <b>Section 6-28, pp. 460–462</b> — the manual's own words, not a paraphrase of them.</li><li>Every diagram carries its own page cite. Pages are decomposed into atomic answer-units so a machine can comprehend them.</li></ul></div>
+          <div class="txt">
+            <div class="kicker"><span class="dot">●</span> RETRIEVAL · DETERMINISTIC RAG</div>
+            <h2>The manual answers, not the model.</h2>
+            <ul class="jd"><li>A deterministic, citation-based RAG service over a multimodal corpus — <b>FastAPI / Python</b>, BM25, live on Cloud Run.</li><li><b>The LLM interprets the question. It never writes the answer.</b> Ask “how do I change the battery?” and you get <b>Section 6-28, pp. 460–462</b> — the manual's own words, not a paraphrase of them.</li><li>Every diagram carries its own page cite. Pages are decomposed into atomic answer-units so a machine can comprehend them.</li></ul>
+          </div>
           <div class="media"><img class="asset" src="../../assets/drag-answer.png" alt="Deterministic RAG answer view: question 'How do I change the battery?' for a 2023 Mazda CX-30, returning Section 6-28 cited to pages 460-462 with a Low confidence badge, the manual's verbatim NOTE text, and an illustration captioned Section 6-28 Page 461."><div class="asset-caption">D-RAG · QUESTION → CITED SECTION → SOURCE TEXT + PAGE-LEVEL DIAGRAM CITES</div></div>
         </div>
       </section>
@@ -110,19 +102,19 @@
       <section data-background-color="#f2efe9" data-background-image="/assets/slide-mcp-gateway.png" data-background-size="contain" data-background-repeat="no-repeat" aria-label="Both sides of the agent protocol: travel.aw is an MCP client of an airline's own server and an MCP server to third-party agents. Ships an MCP server exposing 9 read-only tools over JSON-RPC, bearer-authenticated, rate-limited, deny-by-default. Consumes Turkish Airlines' 14-tool MCP server over OAuth 2.1 plus PKCE. Write tools are withheld on purpose. Live terminal output shows an unauthorized tools/list call returning 401 and a public agent-card.json returning 200.">
       </section>
 
-      <section data-background-color="#f5f0e8">
+      <section data-background-color="#141110">
         <div class="kicker"><span class="dot">●</span> REUSABLE PRIMITIVES</div>
         <h2>I built the primitives, not just the agent.</h2>
         <ul class="jd jd-wide"><li><b>Approve / undo</b> — a one-use cryptographic grant, bounded transaction gates, and human-in-the-loop confirmation. An agent cannot complete a purchase unverified.</li><li><b>Context continuity</b> — an owner-scoped user domain compiled just-in-time into context, so the agent picks up where the traveler left off.</li><li><b>Explanations</b> — section-level evidence and a confidence band on every answer.</li><li>Each one is reusable on any surface where an agent acts for someone.</li></ul>
       </section>
 
-      <section data-background-color="#f5f0e8">
-        <div class="hdr">
-          <div class="kicker"><span class="dot">●</span> TRANSACTION SPINE · AGENTS TRANSACT</div>
-          <h2>Safe agent checkout.</h2>
-        </div>
+      <section data-background-color="#141110">
         <div class="split">
-          <div class="txt"><ul class="jd"><li>The money-path end: confirm the flight, <b>book it</b> — Alaska SFO→SEA, confirmed total $118.40.</li><li><b>Human-in-the-loop</b>: review price → confirm → book; an agent can't purchase unverified.</li><li>Data-minimized — “used only for this booking, not stored beyond it.”</li></ul></div>
+          <div class="txt">
+            <div class="kicker"><span class="dot">●</span> TRANSACTION SPINE · AGENTS TRANSACT</div>
+            <h2>Safe agent checkout.</h2>
+            <ul class="jd"><li>The money-path end: confirm the flight, <b>book it</b> — Alaska SFO→SEA, confirmed total $118.40.</li><li><b>Human-in-the-loop</b>: review price → confirm → book; an agent can't purchase unverified.</li><li>Data-minimized — “used only for this booking, not stored beyond it.”</li></ul>
+          </div>
           <div class="media"><img class="asset" src="../../assets/app-confirm-2.png" alt="Confirm Your Flight: Alaska SFO to SEA nonstop $118, passenger details, confirmed total 118.40 USD, Book This Flight button, data-minimization note."><div class="asset-caption">CONFIRM YOUR FLIGHT · REVIEW → BOOK</div></div>
         </div>
       </section>
@@ -130,24 +122,24 @@
       <section data-background-color="#f2efe9" data-background-image="/assets/slide-guardrails-refusal.png" data-background-size="contain" data-background-repeat="no-repeat" aria-label="Build the gate, watch it fire, know when to remove it. A pre-write hook blocked the coding agent from authoring its own governance and refused 18 real write attempts, each appended to a tamper-evident ledger. Then it was removed: the gate caught process violations, not defects. Enforcement moved from the keystroke to the blast radius. What runs today refuses at the point of damage — no test suite may execute against the production database, with no override. Beneath it, a deterministic eval floor of 103 tests over a 32-case corpus scored against 17 named failure codes. Hook retired in commit d723973.">
       </section>
 
-      <section data-background-color="#f5f0e8">
-        <div class="hdr">
-          <div class="kicker"><span class="dot">●</span> EVALUATION · FRONTIER MODELS</div>
-          <h2>I ran the test that killed my own thesis.</h2>
-        </div>
+      <section data-background-color="#141110">
         <div class="split">
-          <div class="txt"><ul class="jd"><li>Drove <b>Gemini and Perplexity</b> through 30 questions across two owner's manuals, twice each — <b>119 answers scored</b>, every citation logged.</li><li>My going-in thesis was that the citation slot was empty. <b>The data refuted it.</b> Gemini cites nothing by design; Perplexity cites ~98%, and those slots are already owned.</li><li>So I changed the plan, not the data. Measure first, then build.</li></ul></div>
+          <div class="txt">
+            <div class="kicker"><span class="dot">●</span> EVALUATION · FRONTIER MODELS</div>
+            <h2>I ran the test that killed my own thesis.</h2>
+            <ul class="jd"><li>Drove <b>Gemini and Perplexity</b> through 30 questions across two owner's manuals, twice each — <b>119 answers scored</b>, every citation logged.</li><li>My going-in thesis was that the citation slot was empty. <b>The data refuted it.</b> Gemini cites nothing by design; Perplexity cites ~98%, and those slots are already owned.</li><li>So I changed the plan, not the data. Measure first, then build.</li></ul>
+          </div>
           <div class="media"><div class="placeholder"><div class="ph-badge">PLACEHOLDER</div><div class="ph-note">Suggested image: the <b>probe scoring sheet</b> or a simple chart of the two engines' citation rates. The point of the slide is the judgment, so a plain results table is fine.</div></div></div>
         </div>
       </section>
 
-      <section data-background-color="#f5f0e8">
+      <section data-background-color="#141110">
         <div class="kicker"><span class="dot">●</span> POINT OF VIEW · GREG PROSL</div>
         <h2>The bet, and what's next.</h2>
         <ul class="jd jd-wide"><li>My bet: the durable work in applied AI is the <b>primitives layer</b> — approve/undo, context continuity, explanations — not any one agent. So I built that layer first.</li><li>It works: a live agent that transacts, on retrieval I built, behind guardrails the CI enforces.</li><li><b>Where I'd grow:</b> I've made primitives reusable inside my own products. Getting many independent teams to adopt them is the muscle I want next — and it's this role's charter.</li><li>Why it maps to Core AI Experiences: you're hiring someone to prototype fast and then leave behind patterns other teams build on. That's the job I've been doing alone.</li></ul>
       </section>
 
-      <section class="center" data-background-color="#f5f0e8">
+      <section class="center" data-background-color="#141110">
         <div class="kicker"><span class="dot">●</span> GREG PROSL</div>
         <h2>Let's build.</h2>
         <p class="sub" style="margin:.8em auto 0;">gprosl@gmail.com · Seattle, WA · <a href="https://travel.augworlds.ai">travel.augworlds.ai</a></p>
