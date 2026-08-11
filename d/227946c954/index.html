@@ -317,6 +317,18 @@
       </section>
 
       <section data-background-color="#141110">
+        <div class="kicker"><span class="dot">●</span> CONVERSATION DESIGN · THE ASK MODEL</div>
+        <h2>The craft is asking less.</h2>
+        <ul class="jd jd-wide"><li><b>Hard-ask entities</b> — origin, destination, date — are always asked and <b>never fabricated</b>. Every other slot is gated at <b>confidence 0.6</b>.</li><li><b>Precedence:</b> route endpoints are asked before dates, so two questions never land in a row.</li><li><b>Anti-over-ask:</b> a single date with no round-trip signal resolves to one-way — no return question.</li><li><b>Never re-ask.</b> Entity preservation across turns exists for one reason: to stop the clarification loop.</li></ul>
+      </section>
+
+      <section data-background-color="#141110">
+        <div class="kicker"><span class="dot">●</span> BRAND VOICE · A SPEC, NOT A VIBE</div>
+        <h2>The persona is a number, and it compiles.</h2>
+        <ul class="jd jd-wide"><li><b>Four dials</b> — formality 45, opinion 75, brevity 75, warmth 65 — plus seven per-mode blend ratios and a seven-row anti-pattern table.</li><li>The dials <b>restate verbatim in the annotation system prompt</b>. The decision record <i>is</i> the runtime instruction, not a style guide beside it.</li><li><b>Opinion = cognitive labor saved.</b> No labor saved, silence. Silence is a designed voice choice, not an absence.</li><li>Enforced, not aspirational: a hard <b>15-word cap</b>, no exclamation marks, and <b>“check with the airline” fails the test suite.</b></li></ul>
+      </section>
+
+      <section data-background-color="#141110">
         <div class="split">
           <div class="txt">
             <div class="kicker"><span class="dot">●</span> RETRIEVAL · DETERMINISTIC RAG</div>
